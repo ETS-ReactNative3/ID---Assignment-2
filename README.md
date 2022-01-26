@@ -83,12 +83,12 @@ Logo
 
 Media 
 - The photos used in this site were obtained from
-  : https://www.gov.sg/-/media/gov/logo.png?as=0&mw=1000&hash=66C1E0D1EE8B1238022B377C728DF485 (gov.sg website)(Gov logo)
-  : https://www.tracetogether.gov.sg/img/tt-og-2.png (gov.sg website)(TT icon)
-  : https://cdn.discordapp.com/attachments/492353774829043713/935071279655030854/covid-19-vaccine-mixing-shutterstock_1891563244.png (Vaccine Image)
-  : https://c.files.bbci.co.uk/D505/production/_115033545_gettyimages-1226314512.jpg (Virus Image)
-  : https://images.theconversation.com/files/422498/original/file-20210921-19-1kb6j0s.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop (Virus Image)
-  : https://cdn-icons.flaticon.com/png/512/5341/premium/5341753.png?token=exp=1643009386~hmac=c69c878e265bc722ccdb1614b01ebb26 (Virus Protection Shield Image)
+: https://www.gov.sg/-/media/gov/logo.png?as=0&mw=1000&hash=66C1E0D1EE8B1238022B377C728DF485 (gov.sg website)(Gov logo)
+: https://www.tracetogether.gov.sg/img/tt-og-2.png (gov.sg website)(TT icon)
+: https://cdn.discordapp.com/attachments/492353774829043713/935071279655030854/covid-19-vaccine-mixing-shutterstock_1891563244.png (Vaccine Image)
+: https://c.files.bbci.co.uk/D505/production/_115033545_gettyimages-1226314512.jpg (Virus Image)
+: https://images.theconversation.com/files/422498/original/file-20210921-19-1kb6j0s.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop (Virus Image)
+: https://cdn-icons.flaticon.com/png/512/5341/premium/5341753.png?token=exp=1643009386~hmac=c69c878e265bc722ccdb1614b01ebb26 (Virus Protection Shield Image)
 
 
 
