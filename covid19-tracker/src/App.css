@@ -9,6 +9,6 @@
   margin-bottom: 20px;           /*to create spaces below it so the element below it does not stick to it. NOTE: margin adds space outside of the element compared to padding*/
   justify-content: space-between; /*spaces the flex box of app header and the h1 element(a flex box)*/
 }
-/*here you target the the app header to make it into an flexbox
+/*here you target the the all the elements in the app header to make it into an flexbox
 instead being a span element taking up the whole row*/
 
