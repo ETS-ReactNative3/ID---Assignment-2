@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";            //we added useState so to be able to use state(var) in react later
 import { MenuItem,  FormControl,  Select} from "@material-ui/core";                         //importing the material UI 
+import InfoBox from "./InfoBox";                                                            //here its imports the info boxes using relative path
 import "./App.css";
 
 
@@ -75,8 +76,12 @@ const onCountryChange = async (event) => {
         </FormControl>
       </div>
 
-      <div class="app_stats"> {/*here we create info boxes to store statistics regarding the covid cases based on the selected country*/}
-
+      <div className="app__stats"> {/*here we create info boxes to store statistics regarding the covid cases based on the selected country*/}
+        <InfoBox title="Coronavirus Case" cases={11} total={1}/>  {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
+      
+        <InfoBox title="Recovered" cases={22} total={2}/>
+       
+        <InfoBox title="Deaths" cases={33} total={3}/>
       </div>
     </div>
   );

@@ -2,6 +2,9 @@
   margin:0;                       /*Set default margin to 0, so theres no spacing between the webpage*/
 }
 
+body{
+  background-color: #f5f6fa;
+}/*setting the background colour to light gray for the body*/
 
 .app__header{
   display: flex;
@@ -12,3 +15,7 @@
 /*here you target the the all the elements in the app header to make it into an flexbox
 instead being a span element taking up the whole row*/
 
+.app__stats{
+  display: flex; /*makes it into individual boxes allowing it to not span the whole row, using justify content thereafter*/
+  justify-content: space-between;
+}/*here we target the infoboxes, with a class name of app_stats*/
