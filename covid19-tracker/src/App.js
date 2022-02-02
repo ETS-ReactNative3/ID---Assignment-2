@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";            //we added useState so to be able to use state(var) in react later
-import { MenuItem,  FormControl,  Select} from "@material-ui/core";                         //importing the material UI 
-import InfoBox from "./InfoBox";                                                            //here its imports the info boxes using relative path
+import { MenuItem,  FormControl,  Select, Card, CardContent} from "@material-ui/core";                         //importing the material UI 
+import InfoBox from "./InfoBox";                                                            //here it imports the info boxes.js using relative path
+import Map from "./Map";                                                                    //here it imports the map.js using relative path
 import "./App.css";
 
 
@@ -57,6 +58,8 @@ const onCountryChange = async (event) => {
   //{} Note these curely brackets is used to write JS inside of React, combining HTML with JS
   return (
     <div className="app">                     {/*use of BAM naming convention*/}
+      <div className="app__left">
+        {/*Title + Drop Down field*/}
       <div className="app__header">           {/*here we create a div and make the drop down into a row instead, using flex box so it does not span a whole row, hence we create a division for the header*/}
         <h1> Covid-19 Analytics</h1>
         <FormControl className ="app_dropdown"> {/*used for the dropdown list of countries later*/}
@@ -76,6 +79,7 @@ const onCountryChange = async (event) => {
         </FormControl>
       </div>
 
+      {/*InfoBoxes*/}
       <div className="app__stats"> {/*here we create info boxes to store statistics regarding the covid cases based on the selected country*/}
         <InfoBox title="Coronavirus Case" cases={11} total={1}/>  {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
       
@@ -83,6 +87,22 @@ const onCountryChange = async (event) => {
        
         <InfoBox title="Deaths" cases={33} total={3}/>
       </div>
+
+      {/*Map*/}
+      <Map />
+      </div>
+
+      <Card className="app__right__panel">
+        {/*Table + Graph (right panel)*/}
+
+        <CardContent>
+          {/*Table*/}
+          <h3>Live Cases by Country</h3>
+          {/*Graph*/}
+          <h3>Worldwide new cases</h3>
+        </CardContent>
+        
+      </Card> {/*Card/CardContent is imported from Material UI*/}
     </div>
   );
 }

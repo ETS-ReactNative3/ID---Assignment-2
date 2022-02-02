@@ -6,6 +6,15 @@ body{
   background-color: #f5f6fa;
 }/*setting the background colour to light gray for the body*/
 
+.app{
+  display: flex; /*this is used to make the left and right panel side by side*/
+  justify-content: space-evenly; /*thereafter you create space amongst them, space-around will similar action*/
+  margin:20px;                   /*to create some space apart from the top*/
+}
+
+.app__left{
+  flex:0.9;              /*here we use to create more space 0.9(90% vs 10%) for the left panel as compare to the right panel*/
+}
 .app__header{
   display: flex;
   align-items: center;           /*align the items vertially centered*/
@@ -19,3 +28,11 @@ instead being a span element taking up the whole row*/
   display: flex; /*makes it into individual boxes allowing it to not span the whole row, using justify content thereafter*/
   justify-content: space-between;
 }/*here we target the infoboxes, with a class name of app_stats*/
+
+@media (max-width: 1000px){
+  .app{
+    flex-direction: column; /*to make it shift the right panel to the bottom so it takes its own row, by changing the flex direction*/
+  }
+}
+
+/*here we use media query hence when the screen is smallen, the right panel will pop to the bottom*/
