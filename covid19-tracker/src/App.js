@@ -7,9 +7,12 @@ import "./App.css";
 
 
 function App() {
-  const [countries, setCountries] = useState([]);  
+  const [countries, setCountries] = useState([]); 
+  const [country, setCountry] = useState('worldwide'); //this will be used as the deafult value 
   //we passed in a default value in the state(var), an empty array
   // hence we must first create a state(variable in react) of all countries for it to loop through
+
+
 
   //hence here we make an API call to pull each countries and their respective info with regards to covid-19, through this URL: https://disease.sh/v3/covid-19/countries
   //USEEFFECT is used to run a piece of code based on a given con't, by taking an empty func, and allowing a cont in the []. Meaning the code in the empty func will run once when it loads and not again after
@@ -38,7 +41,15 @@ function App() {
   //therefore, we made an API request and pulled it in before populating it in the SELECT list 
 
 
+// a async func that is called when the select value changes, to listen to and display the respective event
+//the async is used for... 
+const onCountryChange = async (event) => {
+  const countryCode = event.target.value //this will grab the selected value that the user chose in the select menu
 
+  setCountry(countryCode)                //here you hence changed the default value, setting it to the one the user choosen in the select list
+  console.log("Country chosen: ", countryCode) //in addition to re-setting the default value, to displaying the selected choice we want it call another func to pull more info, by making an API request to pull ALL OF that countries info and store it as an obj
+}
+//a change usually passes an event along side an event, hence in every event we want to retrive the respective country code 
 
 
 
@@ -48,8 +59,8 @@ function App() {
       <div className="app__header">           {/*here we create a div and make the drop down into a row instead, using flex box so it does not span a whole row, hence we create a division for the header*/}
         <h1> Covid-19 Analytics</h1>
         <FormControl className ="app_dropdown"> {/*used for the dropdown list of countries later*/}
-          <Select variant = "outlined" value="worldwide">        {/*material UI provieds us with select component, the attribute variant provides outline to the dropdown, value will be what's is displayed by default hence if the tag shared the same value it will be displayed by default, in this case "WorldWide" is set to default in the drop down list*/}
-            {/* in the select menu i want to loop through all possible countries to display in the drop down list, using state(variable)*/}
+          <Select variant = "outlined" value={country} onChange={onCountryChange}>        {/*material UI provieds us with select component, the attribute variant provides outline to the dropdown, value will be what's is displayed by default hence if the tag shared the same value it will be displayed by default, in this case "WorldWide" is set to default in the drop down list. !!! We have also mapped our droppdown to the respective country!!!*/}
+            {/* in the select menu i want to loop through all possible countries to display in the drop down list, using state(variable)*/}{/*in addition i also use the arguemnt onChange, to listen to an event that changes the select to another country, so on the select default value being change it will call the function onCountrychange to perform some action */}
 
             <MenuItem value="worldwide">Worldwide</MenuItem> {/*here i want to set the default value to wolrd wide, to have world wide as the defualt opt*/} 
 
@@ -60,10 +71,12 @@ function App() {
                 <MenuItem value={country.value}>{country.name}</MenuItem>
               ))
             } {/*essentially it maps through all countries and display the respective name and value, by retriving it from the obj's attri*/}
-
-            
           </Select>
         </FormControl>
+      </div>
+
+      <div class="app_stats"> {/*here we create info boxes to store statistics regarding the covid cases based on the selected country*/}
+
       </div>
     </div>
   );
