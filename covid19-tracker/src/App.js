@@ -14,8 +14,18 @@ function App() {
   //we passed in a default value in the state(var), an empty array
   // hence we must first create a state(variable in react) of all countries for it to loop through
 
+  const [countryInfo, setCountryInfo] = useState({}); //this state(with default value(empty obj)) is used to store the info of the obj based on the user's selected countryCode
 
+  /* !!!This is used to display the info for the default worldwide opt, through accessing its data and its respective attribute(fields), and setting it into the state(var) coutryInfo!!! */
+  //UseEffect [], is only going to work once app.js loads.
+  useEffect(() => {
+    fetch("https://disease.sh/v3/covid-19/all").then(response => response.json())
+    .then(data => { 
+      setCountryInfo(data); //thsi fetches everything for world wide, then we set the response to json as that is the form we want it, before we set countryinfo to the data provided
+    })
+  }, [])
 
+  /* !!!GETS country name and code for selection !!! */
   //hence here we make an API call to pull each countries and their respective info with regards to covid-19, through this URL: https://disease.sh/v3/covid-19/countries
   //USEEFFECT is used to run a piece of code based on a given con't, by taking an empty func, and allowing a cont in the []. Meaning the code in the empty func will run once when it loads and not again after
   //Meaing it will run like once when the app component loads and as well as when the cont [] changes. In this case, [country] when country variable changes
@@ -42,19 +52,41 @@ function App() {
   }, []); //everytime a var inside of [] changes meaing, when the user select a country or smth, it will re-run this code and then get the Data and match it to the condition specified, which is a country
   //therefore, we made an API request and pulled it in before populating it in the SELECT list 
 
+  /* !!!GETS country code, finds respective country obj and display info !!! */
+  // a async func that is called when the select value changes, to listen to and display the respective event
+  //the async is used for the requesting of data from the backend and see if it works
+  //this func is important in listen for change of event in the selection in the drop down field, hence onced changed it triggers this func we want it to call another func to perform API pull request, using the info of the respective country. But for the default we will need to pull info of all conutries using a diff specific URL.
+  const onCountryChange = async (event) => {
+    const countryCode = event.target.value //this will grab the selected value that the user chose in the select menu
 
-// a async func that is called when the select value changes, to listen to and display the respective event
-//the async is used for... 
-const onCountryChange = async (event) => {
-  const countryCode = event.target.value //this will grab the selected value that the user chose in the select menu
+    setCountry(countryCode)                //here you hence changed the default value, setting it to the one the user choosen in the select list
+    console.log("Country chosen: ", countryCode) //in addition to re-setting the default value, to displaying the selected choice we want it call another func to pull more info, by making an API request to pull ALL OF that countries info and store it as an obj
 
-  setCountry(countryCode)                //here you hence changed the default value, setting it to the one the user choosen in the select list
-  console.log("Country chosen: ", countryCode) //in addition to re-setting the default value, to displaying the selected choice we want it call another func to pull more info, by making an API request to pull ALL OF that countries info and store it as an obj
-}
-//a change usually passes an event along side an event, hence in every event we want to retrive the respective country code 
+    //https://disease.sh/v3/covid-19/all                      (used to pull all info when default value of worldwide, duriing default when it is selected)
+    //https://disease.sh/v3/covid-19/countries[Country Code]  (used to pull the specified country, using the passed in country code user selectes it, to pull the respective info)
+    //if country code = world wide, use first, else use second with passed in country code
+
+    const url = 
+      countryCode === 'worldwide' 
+        ? 'https://disease.sh/v3/covid-19/all'                                               //if country code is ww it will go with this URL
+        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;                          //else this URL is used
+    
+    await fetch(url).then(response => response.json()).then(data => {
+      setCountry(countryCode);
+      setCountryInfo(data);  //stores the whole country data into the state(variable) using the setters, from the response. But not for worldwide.
+    })
+    //hence once we fetch and got the response we want to turn it into json data obj, before allowing us to access its respective attri 
+
+    //this is an if statement to check if the country code equates to 'worldwide, it sets the const url to the worldwide one, 
+    //other wise it will set it to the opposite one, with the help of `` to pass in the value of the countrycode selected by the user
+
+    
+  };
+  //a change usually passes an event along side an event, hence in every event we want to retrive the respective country code 
+  console.log("Country info: ", countryInfo)//this is to see whats the response from API
 
 
-
+  /* !!!DISPLAY INFO!!! */
   //{} Note these curely brackets is used to write JS inside of React, combining HTML with JS
   return (
     <div className="app">                     {/*use of BAM naming convention*/}
@@ -81,11 +113,11 @@ const onCountryChange = async (event) => {
 
       {/*InfoBoxes*/}
       <div className="app__stats"> {/*here we create info boxes to store statistics regarding the covid cases based on the selected country*/}
-        <InfoBox title="Coronavirus Case" cases={11} total={1}/>  {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
+        <InfoBox title="Coronavirus Case" cases={countryInfo.todayCases} total={countryInfo.cases}/>  {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
       
-        <InfoBox title="Recovered" cases={22} total={2}/>
+        <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
        
-        <InfoBox title="Deaths" cases={33} total={3}/>
+        <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
       </div>
 
       {/*Map*/}
@@ -101,7 +133,7 @@ const onCountryChange = async (event) => {
           {/*Graph*/}
           <h3>Worldwide new cases</h3>
         </CardContent>
-        
+
       </Card> {/*Card/CardContent is imported from Material UI*/}
     </div>
   );
