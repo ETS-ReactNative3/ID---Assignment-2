@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";            //we added useSta
 import { MenuItem,  FormControl,  Select, Card, CardContent} from "@material-ui/core";                         //importing the material UI 
 import InfoBox from "./InfoBox";                                                            //here it imports the info boxes.js using relative path
 import Map from "./Map";                                                                    //here it imports the map.js using relative path
+import Table from "./Table"
 import "./App.css";
 
 
@@ -15,6 +16,8 @@ function App() {
   // hence we must first create a state(variable in react) of all countries for it to loop through
 
   const [countryInfo, setCountryInfo] = useState({}); //this state(with default value(empty obj)) is used to store the info of the obj based on the user's selected countryCode
+
+  const [tableData, setTableData] = useState([]); //this a state with default value(empty array), to collect info to be used in the the table as data
 
   /* !!!This is used to display the info for the default worldwide opt, through accessing its data and its respective attribute(fields), and setting it into the state(var) coutryInfo!!! */
   //UseEffect [], is only going to work once app.js loads.
@@ -43,8 +46,14 @@ function App() {
         }));                                                       //note that you are retriving from the JSON and traversing through the data to retrive the value before assigning ti to the value of an obj
         //here we are iterating through the data, and then getting every country and only return specific obj from the data
         
+        //set all the data(info which contains name of the country and its country code) from the URL into the state(var(tableData)) array
+        setTableData(data); //list of countries(unsorted) which comes back from that response and simply chucking it into the tableData array to store all countries.
+        //hence we must sort the list of countries
+
         //now we are going to set the state(var) created earlier, by changing the country variable in state(var), through passing in the country obj we mapped 
-        setCountries(countries)
+        setCountries(countries);
+
+
       });
     };
 
@@ -52,35 +61,34 @@ function App() {
   }, []); //everytime a var inside of [] changes meaing, when the user select a country or smth, it will re-run this code and then get the Data and match it to the condition specified, which is a country
   //therefore, we made an API request and pulled it in before populating it in the SELECT list 
 
+  
   /* !!!GETS country code, finds respective country obj and display info !!! */
   // a async func that is called when the select value changes, to listen to and display the respective event
   //the async is used for the requesting of data from the backend and see if it works
   //this func is important in listen for change of event in the selection in the drop down field, hence onced changed it triggers this func we want it to call another func to perform API pull request, using the info of the respective country. But for the default we will need to pull info of all conutries using a diff specific URL.
   const onCountryChange = async (event) => {
-    const countryCode = event.target.value //this will grab the selected value that the user chose in the select menu
+    const countryCode = event.target.value; //this will grab the selected value that the user chose in the select menu
 
-    setCountry(countryCode)                //here you hence changed the default value, setting it to the one the user choosen in the select list
-    console.log("Country chosen: ", countryCode) //in addition to re-setting the default value, to displaying the selected choice we want it call another func to pull more info, by making an API request to pull ALL OF that countries info and store it as an obj
+    //setCountry(countryCode);               //here you hence changed the default value, setting it to the one the user choosen in the select list
+    console.log("Country chosen: ", countryCode); //in addition to re-setting the default value, to displaying the selected choice we want it call another func to pull more info, by making an API request to pull ALL OF that countries info and store it as an obj
 
     //https://disease.sh/v3/covid-19/all                      (used to pull all info when default value of worldwide, duriing default when it is selected)
     //https://disease.sh/v3/covid-19/countries[Country Code]  (used to pull the specified country, using the passed in country code user selectes it, to pull the respective info)
     //if country code = world wide, use first, else use second with passed in country code
 
     const url = 
-      countryCode === 'worldwide' 
-        ? 'https://disease.sh/v3/covid-19/all'                                               //if country code is ww it will go with this URL
+      countryCode === "worldwide" 
+        ? "https://disease.sh/v3/covid-19/all"                                               //if country code is ww it will go with this URL
         : `https://disease.sh/v3/covid-19/countries/${countryCode}`;                          //else this URL is used
     
     await fetch(url).then(response => response.json()).then(data => {
       setCountry(countryCode);
       setCountryInfo(data);  //stores the whole country data into the state(variable) using the setters, from the response. But not for worldwide.
-    })
+    });
     //hence once we fetch and got the response we want to turn it into json data obj, before allowing us to access its respective attri 
 
     //this is an if statement to check if the country code equates to 'worldwide, it sets the const url to the worldwide one, 
     //other wise it will set it to the opposite one, with the help of `` to pass in the value of the countrycode selected by the user
-
-    
   };
   //a change usually passes an event along side an event, hence in every event we want to retrive the respective country code 
   console.log("Country info: ", countryInfo)//this is to see whats the response from API
@@ -126,10 +134,12 @@ function App() {
 
       <Card className="app__right__panel">
         {/*Table + Graph (right panel)*/}
-
         <CardContent>
           {/*Table*/}
           <h3>Live Cases by Country</h3>
+          {/*Since the useEffect previously already obtain the info of the obj, we can then use it to*/}
+          <Table countries={tableData}/>
+
           {/*Graph*/}
           <h3>Worldwide new cases</h3>
         </CardContent>
