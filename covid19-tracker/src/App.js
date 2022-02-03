@@ -4,6 +4,7 @@ import InfoBox from "./InfoBox";                                                
 import Map from "./Map";                                                                    //here it imports the map.js using relative path
 import Table from "./Table"
 import { sortData } from "./util";                                                          //to use the sort function inside of the utilisties file
+import LineGraph from "./LineGraph";
 import "./App.css";
 
 
@@ -141,12 +142,13 @@ function App() {
         {/*Table + Graph (right panel)*/}
         <CardContent>
           {/*Table*/}
-          <h3>Live Cases by Country</h3>
-          {/*Since the useEffect previously already obtain the info of the obj, we can then use it to*/}
+          <h3>Total Live Cases of Country(by cases)</h3>
           <Table countries={tableData}/>
-
+          {/*Since the useEffect previously already obtain the info of the obj, we can then use it to set the table data based on countries with the highest covid cases*/}
+          
           {/*Graph*/}
           <h3>Worldwide new cases</h3>
+          <LineGraph />
         </CardContent>
 
       </Card> {/*Card/CardContent is imported from Material UI*/}
