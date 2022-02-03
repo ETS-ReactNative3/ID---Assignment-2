@@ -3,7 +3,9 @@ import { MenuItem,  FormControl,  Select, Card, CardContent} from "@material-ui/
 import InfoBox from "./InfoBox";                                                            //here it imports the info boxes.js using relative path
 import Map from "./Map";                                                                    //here it imports the map.js using relative path
 import Table from "./Table"
+import { sortData } from "./util";                                                          //to use the sort function inside of the utilisties file
 import "./App.css";
+
 
 
 
@@ -46,9 +48,12 @@ function App() {
         }));                                                       //note that you are retriving from the JSON and traversing through the data to retrive the value before assigning ti to the value of an obj
         //here we are iterating through the data, and then getting every country and only return specific obj from the data
         
+        //here before we set the countries we want to sort the data of the countries by cases, by passing data as parameter
+        const sortedData = sortData(data);
+
         //set all the data(info which contains name of the country and its country code) from the URL into the state(var(tableData)) array
-        setTableData(data); //list of countries(unsorted) which comes back from that response and simply chucking it into the tableData array to store all countries.
-        //hence we must sort the list of countries
+        setTableData(sortedData); //list of countries(unsorted) which comes back from that response and simply chucking it into the tableData array to store all countries.
+        //hence it uses the sorted version of data and will hence display it in sorted format
 
         //now we are going to set the state(var) created earlier, by changing the country variable in state(var), through passing in the country obj we mapped 
         setCountries(countries);
