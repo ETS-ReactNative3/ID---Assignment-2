@@ -62,7 +62,6 @@ function App() {
 
       });
     };
-
     getCountriesData(); //calling the func
   }, []); //everytime a var inside of [] changes meaing, when the user select a country or smth, it will re-run this code and then get the Data and match it to the condition specified, which is a country
   //therefore, we made an API request and pulled it in before populating it in the SELECT list 
@@ -142,13 +141,15 @@ function App() {
         {/*Table + Graph (right panel)*/}
         <CardContent>
           {/*Table*/}
+          {/*Since the useEffect previously already obtain the info of the obj, we can then use it to set the table data based on countries with the highest covid cases*/}
           <h3>Total Live Cases of Country(by cases)</h3>
           <Table countries={tableData}/>
-          {/*Since the useEffect previously already obtain the info of the obj, we can then use it to set the table data based on countries with the highest covid cases*/}
+          
           
           {/*Graph*/}
           <h3>Worldwide new cases</h3>
           <LineGraph />
+          
         </CardContent>
 
       </Card> {/*Card/CardContent is imported from Material UI*/}
