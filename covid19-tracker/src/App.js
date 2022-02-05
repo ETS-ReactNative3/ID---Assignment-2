@@ -6,6 +6,7 @@ import Table from "./Table"
 import { sortData } from "./util";                                                          //to use the sort function inside of the utilisties file
 import LineGraph from "./LineGraph";
 import "./App.css";
+import "leaflet/dist/leaflet.css";
 
 
 
@@ -21,6 +22,10 @@ function App() {
   const [countryInfo, setCountryInfo] = useState({}); //this state(with default value(empty obj)) is used to store the info of the obj based on the user's selected countryCode
 
   const [tableData, setTableData] = useState([]); //this a state with default value(empty array), to collect info to be used in the the table as data
+
+  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+  const [mapZoom, setMapZoom] = useState(3);
+
 
   /* !!!This is used to display the info for the default worldwide opt, through accessing its data and its respective attribute(fields), and setting it into the state(var) coutryInfo!!! */
   //UseEffect [], is only going to work once app.js loads.
@@ -105,36 +110,40 @@ function App() {
     <div className="app">                     {/*use of BAM naming convention*/}
       <div className="app__left">
         {/*Title + Drop Down field*/}
-      <div className="app__header">           {/*here we create a div and make the drop down into a row instead, using flex box so it does not span a whole row, hence we create a division for the header*/}
-        <h1> Covid-19 Analytics</h1>
-        <FormControl className ="app_dropdown"> {/*used for the dropdown list of countries later*/}
-          <Select variant = "outlined" value={country} onChange={onCountryChange}>        {/*material UI provieds us with select component, the attribute variant provides outline to the dropdown, value will be what's is displayed by default hence if the tag shared the same value it will be displayed by default, in this case "WorldWide" is set to default in the drop down list. !!! We have also mapped our droppdown to the respective country!!!*/}
-            {/* in the select menu i want to loop through all possible countries to display in the drop down list, using state(variable)*/}{/*in addition i also use the arguemnt onChange, to listen to an event that changes the select to another country, so on the select default value being change it will call the function onCountrychange to perform some action */}
+        <div className="app__header">           {/*here we create a div and make the drop down into a row instead, using flex box so it does not span a whole row, hence we create a division for the header*/}
+          <h1> Covid-19 Analytics</h1>
+          <FormControl className ="app_dropdown"> {/*used for the dropdown list of countries later*/}
+            <Select variant = "outlined" value={country} onChange={onCountryChange}>        {/*material UI provieds us with select component, the attribute variant provides outline to the dropdown, value will be what's is displayed by default hence if the tag shared the same value it will be displayed by default, in this case "WorldWide" is set to default in the drop down list. !!! We have also mapped our droppdown to the respective country!!!*/}
+              {/* in the select menu i want to loop through all possible countries to display in the drop down list, using state(variable)*/}{/*in addition i also use the arguemnt onChange, to listen to an event that changes the select to another country, so on the select default value being change it will call the function onCountrychange to perform some action */}
 
-            <MenuItem value="worldwide">Worldwide</MenuItem> {/*here i want to set the default value to wolrd wide, to have world wide as the defualt opt*/} 
+              <MenuItem value="worldwide">Worldwide</MenuItem> {/*here i want to set the default value to wolrd wide, to have world wide as the defualt opt*/} 
 
-            {/*this will loop through the state(var), so for every country in countries(state(var)), we will retrun a MenuItem to be included in the drop down list, and in each iteration set it to the value attr of the specific element and the name of the specific element.*/ }
-            {/*Hence we then use an API call to be able to iterate through all the countries and display each of it, so we will make a call to get all countries with covid-19 */}
-            { 
+              {/*this will loop through the state(var), so for every country in countries(state(var)), we will retrun a MenuItem to be included in the drop down list, and in each iteration set it to the value attr of the specific element and the name of the specific element.*/ }
+              {/*Hence we then use an API call to be able to iterate through all the countries and display each of it, so we will make a call to get all countries with covid-19 */}
+              {
               countries.map((country) => (
                 <MenuItem value={country.value}>{country.name}</MenuItem>
               ))
-            } {/*essentially it maps through all countries and display the respective name and value, by retriving it from the obj's attri*/}
-          </Select>
-        </FormControl>
-      </div>
+              } 
+              {/*essentially it maps through all countries and display the respective name and value, by retriving it from the obj's attri*/}
+            </Select>
+          </FormControl>
+        </div>
 
-      {/*InfoBoxes*/}
-      <div className="app__stats"> {/*here we create info boxes to store statistics regarding the covid cases based on the selected country*/}
-        <InfoBox title="Coronavirus Case" cases={countryInfo.todayCases} total={countryInfo.cases}/>  {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
+        {/*InfoBoxes*/}
+        <div className="app__stats"> {/*here we create info boxes to store statistics regarding the covid cases based on the selected country*/}
+          <InfoBox title="Coronavirus Case" cases={countryInfo.todayCases} total={countryInfo.cases}/>  {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
       
-        <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
+          <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
        
-        <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
-      </div>
+          <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
+        </div>
 
-      {/*Map*/}
-      <Map />
+        {/*Map*/}
+        <Map 
+        center={mapCenter}
+        zoom={mapZoom}
+        />
       </div>
 
       <Card className="app__right__panel">
@@ -148,7 +157,7 @@ function App() {
           
           {/*Graph*/}
           <h3>Worldwide new cases</h3>
-          <LineGraph />
+          {/*<LineGraph />*/}
           
         </CardContent>
 
