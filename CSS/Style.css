@@ -1,3 +1,4 @@
-img {
-  width: 100%;
+.centreing {
+  margin: auto;
+  text-align: centre;
 }
