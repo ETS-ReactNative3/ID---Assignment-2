@@ -3,7 +3,7 @@ import "./Map.css";
 import {MapContainer as LeafletMap, TileLayer} from "react-leaflet"; //we renamed it as LeafletMap as ours func is called Map
 
 
-function Map({center, zoom }) {
+function MapContainer({center, zoom }) {
   return( 
     <div className="map">
       <h1>I'm ab map</h1>
@@ -18,4 +18,4 @@ function Map({center, zoom }) {
   );
 }
 
-export default Map;
+export default MapContainer;
