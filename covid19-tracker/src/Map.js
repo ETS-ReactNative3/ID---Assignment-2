@@ -7,6 +7,7 @@ function Map({center, zoom }) {
   return( 
     <div className="map">
       <h1>I'm ab map</h1>
+      {console.log("Im a map")}
       <LeafletMap center={center} zoom={zoom}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
