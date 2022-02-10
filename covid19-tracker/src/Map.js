@@ -6,8 +6,8 @@ import {MapContainer as LeafletMap, TileLayer} from "react-leaflet"; //we rename
 function MapContainer({center, zoom }) {
   return( 
     <div className="map">
-      <h1>I'm ab map</h1>
-      {console.log("Im a map")}
+      <h1>I'm not a map</h1>
+      
       <LeafletMap center={center} zoom={zoom}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -90,7 +90,7 @@ function App() {
       countryCode === "worldwide" 
         ? "https://disease.sh/v3/covid-19/all"                                               //if country code is ww it will go with this URL
         : `https://disease.sh/v3/covid-19/countries/${countryCode}`;                          //else this URL is used
-    
+
     await fetch(url).then(response => response.json()).then(data => {
       setCountry(countryCode);
       setCountryInfo(data);  //stores the whole country data into the state(variable) using the setters, from the response. But not for worldwide.
