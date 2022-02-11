@@ -24,8 +24,9 @@ function App() {
   const [tableData, setTableData] = useState([]); //this a state with default value(empty array), to collect info to be used in the the table as data
 
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
-  const [mapZoom, setMapZoom] = useState(3);
+  const [mapZoom, setMapZoom] = useState(3); //will be passed in as zoom value when rendering the map allowing it to see the world map entirely 
 
+  const [mapCountries, setMapCountries] = useState([]); //this is set in one of the useEffect
 
   /* !!!This is used to display the info for the default worldwide opt, through accessing its data and its respective attribute(fields), and setting it into the state(var) coutryInfo!!! */
   //UseEffect [], is only going to work once app.js loads.
@@ -49,8 +50,8 @@ function App() {
       .then((response) => response.json())                          //thereafter, we use the Data(JSON) and restructure it
       .then((data) => {
         const countries = data.map((country) => ({                  //mapping of countries obj, map func essentially loops through the array, it gets some data(in this case) and returning an ARRAY of obj with only obj with specificed attr and not the whole JSON raw obj  
-          name: country.country,                                    //here we are matching the data(name = Singapore) we retrived and mapping it into an object
-          value: country.countryInfo.iso2,                          //similarly here we are mapping the country code(SG, JPN...) to the value attr in the obj
+          name: country.country,          // United States, United Kingdom                                //here we are matching the data(name = Singapore) we retrived and mapping it into an object
+          value: country.countryInfo.iso2,// US, UK                          //similarly here we are mapping the country code(SG, JPN...) to the value attr in the obj
         }));                                                       //note that you are retriving from the JSON and traversing through the data to retrive the value before assigning ti to the value of an obj
         //here we are iterating through the data, and then getting every country and only return specific obj from the data
         
@@ -64,6 +65,8 @@ function App() {
         //now we are going to set the state(var) created earlier, by changing the country variable in state(var), through passing in the country obj we mapped 
         setCountries(countries);
 
+        setMapCountries(data); //all of the info of the countries will be set into the state
+
 
       });
     };
@@ -73,11 +76,12 @@ function App() {
 
   
   /* !!!GETS country code, finds respective country obj and display info !!! */
+  //This function is also used when user selects a specific country the country will be returned and we will zoom into the specific country
   // a async func that is called when the select value changes, to listen to and display the respective event
   //the async is used for the requesting of data from the backend and see if it works
   //this func is important in listen for change of event in the selection in the drop down field, hence onced changed it triggers this func we want it to call another func to perform API pull request, using the info of the respective country. But for the default we will need to pull info of all conutries using a diff specific URL.
-  const onCountryChange = async (event) => {
-    const countryCode = event.target.value; //this will grab the selected value that the user chose in the select menu
+  const onCountryChange = async (e) => {
+    const countryCode = e.target.value; //this will grab the selected value that the user chose in the select menu
 
     //setCountry(countryCode);               //here you hence changed the default value, setting it to the one the user choosen in the select list
     console.log("Country chosen: ", countryCode); //in addition to re-setting the default value, to displaying the selected choice we want it call another func to pull more info, by making an API request to pull ALL OF that countries info and store it as an obj
@@ -91,10 +95,16 @@ function App() {
         ? "https://disease.sh/v3/covid-19/all"                                               //if country code is ww it will go with this URL
         : `https://disease.sh/v3/covid-19/countries/${countryCode}`;                          //else this URL is used
 
-    await fetch(url).then(response => response.json()).then(data => {
-      setCountry(countryCode);
-      setCountryInfo(data);  //stores the whole country data into the state(variable) using the setters, from the response. But not for worldwide.
-    });
+    await fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setCountry(countryCode);
+        setCountryInfo(data);  //stores the whole country data into the state(variable) using the setters, from the response. But not for worldwide.
+    
+        setMapCenter([data.countryInfo.lat, data.countryInfo.long]); //this is so when user changes the country using the selection provided, the focus of the map changes as well. Using the countries API of lat and long as well.
+        setMapZoom(4); //after traversing to that country the map will then zoom in more to that country in specific
+        console.log("Country info: ", data.countryInfo.long)
+      });
     //hence once we fetch and got the response we want to turn it into json data obj, before allowing us to access its respective attri 
 
     //this is an if statement to check if the country code equates to 'worldwide, it sets the const url to the worldwide one, 
@@ -141,8 +151,9 @@ function App() {
 
         {/*Map*/}
         <Map 
+        countries={mapCountries}
         center={mapCenter}
-        zoom={mapZoom}
+        zoom={mapZoom} //here were we render the map, to do so we pass in some parameters by calling the state(var) which provides some values
         />
       </div>
 
