@@ -71,6 +71,26 @@ export const showDataOnMap = (data, casesType='cases') => //there no need for {}
         >
             <Popup>
                 <h1>Im a popup</h1>
+                <div>
+                    <div
+                        style={{ backgroundImage: `url(${country.countryInfo.flag})` }} 
+                    /> {/*here we are going to render the flag from the URL*/} 
+                    {/*we made it self enclosing, because onlt arrguments is required and content is not needed */}
+                    
+                    <div>{country.country /*this displays the name of the country*/}</div>
+                    
+                    <div>
+                        Cases: {numeral(country.cases).format("0,0")} 
+                    </div> {/*here we display the number of cases using numeral(moduler) to format the number, we format it the same form for recoved and death taking the data out of the obj's respective attribute*/}
+
+                    <div>
+                        Recovered: {numeral(country.recovered).format("0,0")}
+                    </div>
+
+                    <div>
+                        Deaths: {numeral(country.deaths).format("0,0")}
+                    </div>{/*notice how we can write using JSX here, it makes it way easier and simpler to write these things provided by React JSX*/}
+                </div>
             </Popup>
         </Circle>//here it will use the circle imported from leaflet and display it, it takes in a few attributes too
     )); //for every iteration, (we make each obj a country), we are then going to return info about the country
