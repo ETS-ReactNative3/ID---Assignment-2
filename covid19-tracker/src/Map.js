@@ -7,7 +7,7 @@ import { showDataOnMap } from "./util"; //this is to show the circles using the 
 function MapContainer({countries, casesType, center, zoom }) {
   return( 
     <div className="map">
-      <h1>I'm not a map</h1>
+      {/*<h1>I'm not a map</h1>*/}
       {/*Console.log("Test in console")*/}
       <LeafletMap center={center} zoom={zoom}>
         <TileLayer

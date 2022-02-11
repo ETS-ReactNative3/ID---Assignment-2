@@ -70,24 +70,28 @@ export const showDataOnMap = (data, casesType='cases') => //there no need for {}
             //this formula takes the cases and mutiplies it to the respective size of circle using the multiplier in the styling dict
         >
             <Popup>
-                <h1>Im a popup</h1>
-                <div>
+                {/*<h1>Im a popup</h1>*/}
+                <div className="info-container">
                     <div
+                        className="info-flag"
                         style={{ backgroundImage: `url(${country.countryInfo.flag})` }} 
-                    /> {/*here we are going to render the flag from the URL*/} 
+                    /> 
+                    {/*here we are going to render the flag from the URL*/} 
                     {/*we made it self enclosing, because onlt arrguments is required and content is not needed */}
                     
-                    <div>{country.country /*this displays the name of the country*/}</div>
+                    <div className="info-name">
+                        {country.country /*this displays the name of the country*/}
+                    </div>
                     
-                    <div>
+                    <div className="info-confirmed">
                         Cases: {numeral(country.cases).format("0,0")} 
                     </div> {/*here we display the number of cases using numeral(moduler) to format the number, we format it the same form for recoved and death taking the data out of the obj's respective attribute*/}
 
-                    <div>
+                    <div className="info-recovered">
                         Recovered: {numeral(country.recovered).format("0,0")}
                     </div>
 
-                    <div>
+                    <div className="info-deaths">
                         Deaths: {numeral(country.deaths).format("0,0")}
                     </div>{/*notice how we can write using JSX here, it makes it way easier and simpler to write these things provided by React JSX*/}
                 </div>

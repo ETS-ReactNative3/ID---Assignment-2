@@ -1,3 +1,4 @@
+/*HOT MAP*/
 .map {
   height: 500px;
   background-color: white;
@@ -11,8 +12,41 @@
   height: 100%;  /*When we initalise leaflet which is a map liabry, they will automatically create a div with class "leaflet-container" however they map height is to large hence you must personally set it to height 100% in order for it to display within the given container*/
   border-radius: 12px;
 }
-  
+
+
+/*INFORMATION BOX*/
+/*here it access the utilities js class to display the img of the respective country*/
+/*FLAG sizing*/
 .info-flag img {
   width: 100px;
   border-radius: 5px;
+}
+
+/*Styling the name of the country in the info container(box)*/
+.info-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+/*Container containing the information*/
+.info-container {
+  width: 150px;
+}
+
+/*Flag displaying*/
+.info-flag {
+  height: 80px;
+  width: 100%;
+  background-size: cover; /*this will show the flag, covering its respective space*/
+  border-radius: 8px;
+}
+
+/*Styling all the three attributes*/
+.info-confirmed,
+.info-recovered,
+.info-deaths {
+  font-size: 16px;
+  margin-top: 5px;
+  font-weight: bold;
 }
