@@ -2,6 +2,9 @@ import React from "react";         //here we use some JSX
 import numeral from "numeral";   //here we use some JSX (this will be used to format numbers in a certain manner)
 import { Circle, Popup } from "react-leaflet"; //circle is to display the circles, then popup is for the interactive tool tip
 
+//utilities allows us to add in small little handy functions to be called and used
+
+
 const casesTypeColors = {
     cases: {
       hex: "#CC1034", //this will represent the hexidecimal color
@@ -54,6 +57,9 @@ assigning it to a const before sorting it, using a ES6 func sort(), which sorts 
 hence using that it will go through an sort out all of 'a'(-1) before returing the sorted data array woth countries sorted */
 
 
+//this will be called to format the number inside of info boxes using numeral making it appealing to look at, as it formats the numbers with plus sign
+export const prettyPrintStat = (stat) =>
+  stat ? `+${numeral(stat).format("0.0a")}` : "+0";
 
 
 //The purpose of this function is to DRAW circles on the map with a interactive tooltop (meaning when you click the circles it will display respective info about it) 

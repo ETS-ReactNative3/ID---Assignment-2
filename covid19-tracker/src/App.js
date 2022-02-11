@@ -3,7 +3,7 @@ import { MenuItem,  FormControl,  Select, Card, CardContent} from "@material-ui/
 import InfoBox from "./InfoBox";                                                            //here it imports the info boxes.js using relative path
 import Map from "./Map";                                                                    //here it imports the map.js using relative path
 import Table from "./Table"
-import { sortData } from "./util";                                                          //to use the sort function inside of the utilisties file
+import { sortData, prettyPrintStat } from "./util";        //we import these util func so we can call the func inside of util to help us do and perform certain handy tasks   //to use the sort function inside of the utilisties file
 import LineGraph from "./LineGraph";
 import "./App.css";
 import "leaflet/dist/leaflet.css";
@@ -142,11 +142,11 @@ function App() {
 
         {/*InfoBoxes*/}
         <div className="app__stats"> {/*here we create info boxes to store statistics regarding the covid cases based on the selected country*/}
-          <InfoBox title="Coronavirus Case" cases={countryInfo.todayCases} total={countryInfo.cases}/>  {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
-      
-          <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
+          <InfoBox title="Coronavirus Case" cases={prettyPrintStat(countryInfo.todayCases)} total={prettyPrintStat(countryInfo.cases)}/>  {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
+          {/*Notice how the utility function of prettyPtinyStat is called to format the numbers inside of the info boxes, hence utili is important to contain these func*/}
+          <InfoBox title="Recovered" cases={prettyPrintStat(countryInfo.todayRecovered)} total={prettyPrintStat(countryInfo.recovered)}/>
        
-          <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
+          <InfoBox title="Deaths" cases={prettyPrintStat(countryInfo.todayDeaths)} total={prettyPrintStat(countryInfo.deaths)}/>
         </div>
 
         {/*Map*/}

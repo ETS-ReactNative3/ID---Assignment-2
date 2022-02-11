@@ -1,0 +1,24 @@
+.infoBox{
+    flex: 1; /*This allows the info box to take up as much room as they can in the row of allowable spaced*/
+}
+
+/*Except the last child(infoBox) is limited to a certain space, this will create allowable spacing between them*/
+.infoBox:not(:last-child) {
+    margin-right: 15px;
+}
+  
+
+  
+.infoBox__cases {
+    color: #cc1034; /*making cases in each box red*/
+    font-weight: 600; /*bolding it*/
+    font-size: 1.75rem; /*making the font size a little bigger*/
+    margin-bottom: 0.5rem; /*adding a little space to the bottom*/
+}
+  
+.infoBox__total {
+    color: #6c757d; /*changing the color of the total*/
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    margin-top: 15px !important; /*important allows it to override the styling material UI have provided*/
+}
