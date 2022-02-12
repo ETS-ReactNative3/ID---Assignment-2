@@ -1,0 +1,39 @@
+*{
+    margin:0;                       /*Set default margin to 0, so theres no spacing between the webpage*/
+}
+  
+.news-app{
+    display: flex; /*here it turn it into a flex box*/ /*to allow for responsiveness*/
+    flex-direction: row;    
+}
+
+.news-item{
+    display: flex; /*this is to make the img and details side by side*/
+    flex-direction: row;
+    justify-content: space-between;
+    width: 5000px;
+
+    border-radius: 25px; /*makes the border at the side curve inwards making the box more appealing*/
+    border: 3px solid #000000; /*to specify the parameters of the border such as the tickness, style, color*/
+    
+    padding: 20px; /*to create a spacing between the border and the content*/
+    margin: 20px; /*to space out between the flex boxes(news items)*/
+
+    
+}
+
+.news-title-url{
+    text-align: center; /*centers the title*/
+}
+
+.news-img{
+    border-radius: 10px; /*makes the img circlular at the side*/
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /*centers the img inside of the flexbox*/
+
+    width: 200px;
+}
+
+  
