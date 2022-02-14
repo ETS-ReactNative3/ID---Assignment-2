@@ -3,7 +3,7 @@
 }
 
 body{
-  background-color: rgba(22, 20, 20, 0.795);
+  background: linear-gradient( 135deg, #c7d5d2 10%, #5e887e 100%);
 }/*setting the background colour to light gray for the body*/
 
 .app{
@@ -36,3 +36,11 @@ instead being a span element taking up the whole row*/
 }
 
 /*here we use media query hence when the screen is smallen, the right panel will pop to the bottom*/
+
+#title{
+  color: black;
+}
+
+#gov-logo{
+  margin: 10px 0px 0px 35px;
+}

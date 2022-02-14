@@ -1,5 +1,6 @@
 .infoBox{
     flex: 1; /*This allows the info box to take up as much room as they can in the row of allowable spaced*/
+    cursor: pointer; /*this will indicate to the end user making it clear to them that they can simply click on it, so they will know what is clickable what is not*/
 }
 
 /*Except the last child(infoBox) is limited to a certain space, this will create allowable spacing between them*/
@@ -9,8 +10,21 @@
   
 .infoBox--selected {
     border-top: 10px solid rgb(25, 92, 218);
-} /*this changes the selected box to color green, by accessing the element (infoBox--selected) any modifying its color of the card to this color*/
+} 
+/*this changes the selected box to color green, by accessing the element (infoBox--selected) any modifying its color of the card to this color*/
 /*by default it will simply just be at cases, until a certain button is clicked*/
+/*this will be the default color for the infoboxes*/
+
+.infoBox--red {
+    border-color: red;
+}
+/*hence if the element is checked to be called infoBox--red, it will then modify the card to display red*/
+/*so all infoBoxes will default to the blue color of the infoBox--selected, unless it contains the var isRed, it will then be passed into the parameter of the infoBox function, read and then processed allowing the css to modify the infoBox to Red instead of the default value blue*/
+
+.infoBox__cases--green {
+    color: rgb(66, 209, 66) !important;
+}
+/*important is used to override the default color(red), since it will check that if the value is not red then it will perform this task of modification, to change the number to green color instead of red default color*/
 
 .infoBox__cases {
     color: #cc1034; /*making cases in each box red*/
