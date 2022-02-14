@@ -28,6 +28,10 @@ function App() {
 
   const [mapCountries, setMapCountries] = useState([]); //this is set in one of the useEffect
 
+  const [casesType, setCasesType] = useState("cases"); 
+  //here we created another piece of state which essentially stores the three values "cases/recovered/deaths" with the default value being "cases", hence when the user wants to user press a 
+  //specific infobox the value of this state will be set to the respective value of the infobox then using the state's (value/default value) we can then change the info displayed on the map (eg. red=deaths, grenn=recovered)
+
   /* !!!This is used to display the info for the default worldwide opt, through accessing its data and its respective attribute(fields), and setting it into the state(var) coutryInfo!!! */
   //UseEffect [], is only going to work once app.js loads.
   useEffect(() => {
@@ -142,18 +146,39 @@ function App() {
 
         {/*InfoBoxes*/}
         <div className="app__stats"> {/*here we create info boxes to store statistics regarding the covid cases based on the selected country*/}
-          <InfoBox title="Coronavirus Case" cases={prettyPrintStat(countryInfo.todayCases)} total={prettyPrintStat(countryInfo.cases)}/>  {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
+          <InfoBox 
+            onClick = {(e) => setCasesType("cases")} //on clicking this specific info box the state will be set to 'cases' type allowing the map to change respectively based on the values in the state
+            active={casesType === "cases"} //here we added a prop called isactive, which checks that if casesType is equal to "cases" value, then the prop active will be active //with the propr being active it will then be set to perform certain action
+            title="Coronavirus Case" 
+            cases={prettyPrintStat(countryInfo.todayCases)} 
+            total={prettyPrintStat(countryInfo.cases)}
+          />  
+          {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
           {/*Notice how the utility function of prettyPtinyStat is called to format the numbers inside of the info boxes, hence utili is important to contain these func*/}
-          <InfoBox title="Recovered" cases={prettyPrintStat(countryInfo.todayRecovered)} total={prettyPrintStat(countryInfo.recovered)}/>
+          
+          <InfoBox 
+            onClick = {(e) => setCasesType("recovered")} //however onClick will still not work, hence we must take this props that is passed in and sent it to infoBox js to process it
+            active={casesType === "recovered"} //whereas if the state contains value "recovered", then this prop will be set to active
+            title="Recovered" 
+            cases={prettyPrintStat(countryInfo.todayRecovered)} 
+            total={prettyPrintStat(countryInfo.recovered)}
+          />
        
-          <InfoBox title="Deaths" cases={prettyPrintStat(countryInfo.todayDeaths)} total={prettyPrintStat(countryInfo.deaths)}/>
+          <InfoBox 
+            onClick = {(e) => setCasesType("deaths")}
+            active={casesType === "deaths"} //hence if the state cases type contains "deaths" as it's value, then this infoBox's prop will be set to active
+            title="Deaths" 
+            cases={prettyPrintStat(countryInfo.todayDeaths)} 
+            total={prettyPrintStat(countryInfo.deaths)}
+          />
         </div>
 
         {/*Map*/}
-        <Map 
-        countries={mapCountries}
-        center={mapCenter}
-        zoom={mapZoom} //here were we render the map, to do so we pass in some parameters by calling the state(var) which provides some values
+        <Map
+          countries={mapCountries}
+          casesType={casesType} //here will retrived the respective cases tpye that is set in the state (cases/recovered/deaths) and then it will perform and display different info
+          center={mapCenter}
+          zoom={mapZoom} //here were we render the map, to do so we pass in some parameters by calling the state(var) which provides some values
         />
       </div>
 

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Table.css";       //used for styling the table
+import numeral from "numeral"; //used to style the figures of country
 
 function Table( { countries } ) {
   return (
@@ -9,8 +10,8 @@ function Table( { countries } ) {
       {countries.map(({country, cases}) => (       //here you directly destructure the passed in obj and accesses its fields respectively to be used //basically for every country you get the country and cases
           <tr>
               <td>{country}</td> {/*here you access its respective country name*/}
-              <td><strong>{cases}</strong></td>
-          </tr>
+              <td><strong>{numeral(cases).format("0,0")}</strong></td>
+          </tr>            //the numeral format them to have commas and make it more readable       
       ))} 
       {/*since the response of each country contains main keys(info), we will put it into the table data. And retrive it from the countries that is passed in through the parameter*/}
     </div>

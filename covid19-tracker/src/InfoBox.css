@@ -7,8 +7,11 @@
     margin-right: 15px;
 }
   
+.infoBox--selected {
+    border-top: 10px solid rgb(25, 92, 218);
+} /*this changes the selected box to color green, by accessing the element (infoBox--selected) any modifying its color of the card to this color*/
+/*by default it will simply just be at cases, until a certain button is clicked*/
 
-  
 .infoBox__cases {
     color: #cc1034; /*making cases in each box red*/
     font-weight: 600; /*bolding it*/

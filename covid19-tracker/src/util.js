@@ -16,13 +16,13 @@ const casesTypeColors = {
       hex: "#7dd71d",
       //rgb: "rgb(125, 215, 29)",
       //half_op: "rgba(125, 215, 29, 0.5)",
-      multiplier: 1200,
+      multiplier: 100,
     },
     deaths: {
-      hex: "#fb4443",
+      hex: "#c70053",
       //rgb: "rgb(251, 68, 67)",
       //half_op: "rgba(251, 68, 67, 0.5)",
-      multiplier: 2000,
+      multiplier: 500,
     },
   };
   //this is a CSSS used to style the circles based on different colors such as recoved, deaths and total
@@ -63,13 +63,13 @@ export const prettyPrintStat = (stat) =>
 
 
 //The purpose of this function is to DRAW circles on the map with a interactive tooltop (meaning when you click the circles it will display respective info about it) 
-export const showDataOnMap = (data, casesType='cases') => //there no need for {}
-    data.map(country => (
+export const showDataOnMap = (data, casesType) => //there no need for {}
+    data.map((country) => (
         <Circle
             center={[country.countryInfo.lat, country.countryInfo.long]} //note it is accessed by the country obj, hence you cannot call it by data.countryInfo. ..., instead you must use the obj name, country.countryInfo.... to access the attributes
-            fillOpacity={0.4} //this makes the circle slightly transparent
-            color={casesTypeColors[casesType].hex}
+            color={casesTypeColors[casesType].hex} //fills the borders of the circle //fillColor, fills the inner part of the circle
             fillColor={casesTypeColors[casesType].hex} //color & fillcolor attributes, utilies the styliing dicitonary on top accesses the casesType("Deaths, recovered...") and get the respective color  
+            fillOpacity={0.4} //this makes the circle slightly transparent
             radius={
                 Math.sqrt(country[casesType]) * casesTypeColors[casesType].multiplier
             }//radius attribute, utilies the styliing dicitonary on top accesses the casesType("Deaths, recovered...") and get the respective size
