@@ -149,6 +149,7 @@ function App() {
           <InfoBox 
             onClick = {(e) => setCasesType("cases")} //on clicking this specific info box the state will be set to 'cases' type allowing the map to change respectively based on the values in the state
             active={casesType === "cases"} //here we added a prop called isactive, which checks that if casesType is equal to "cases" value, then the prop active will be active //with the propr being active it will then be set to perform certain action
+            isRed //here we added a variable called isRed
             title="Coronavirus Case" 
             cases={prettyPrintStat(countryInfo.todayCases)} 
             total={prettyPrintStat(countryInfo.cases)}
@@ -167,6 +168,7 @@ function App() {
           <InfoBox 
             onClick = {(e) => setCasesType("deaths")}
             active={casesType === "deaths"} //hence if the state cases type contains "deaths" as it's value, then this infoBox's prop will be set to active
+            isRed //here we added a variable called isRed
             title="Deaths" 
             cases={prettyPrintStat(countryInfo.todayDeaths)} 
             total={prettyPrintStat(countryInfo.deaths)}
