@@ -125,7 +125,7 @@ function App() {
       <div className="app__left">
         {/*Title + Drop Down field*/}
         <div className="app__header">           {/*here we create a div and make the drop down into a row instead, using flex box so it does not span a whole row, hence we create a division for the header*/}
-          <h1> Covid-19 Analytics</h1>
+          <h1 id="title"> Covid-19 Analytics</h1>
           <FormControl className ="app_dropdown"> {/*used for the dropdown list of countries later*/}
             <Select variant = "outlined" value={country} onChange={onCountryChange}>        {/*material UI provieds us with select component, the attribute variant provides outline to the dropdown, value will be what's is displayed by default hence if the tag shared the same value it will be displayed by default, in this case "WorldWide" is set to default in the drop down list. !!! We have also mapped our droppdown to the respective country!!!*/}
               {/* in the select menu i want to loop through all possible countries to display in the drop down list, using state(variable)*/}{/*in addition i also use the arguemnt onChange, to listen to an event that changes the select to another country, so on the select default value being change it will call the function onCountrychange to perform some action */}
@@ -194,8 +194,9 @@ function App() {
           
           
           {/*Graph*/}
-          <h3>Worldwide new cases</h3>
+          {/*<h3>Worldwide new cases</h3>*/}
           {/*<LineGraph />*/}
+          <img id="gov-logo"src="https://www.sgpc.gov.sg/-/media/gov/logo.ashx"/>
           
         </CardContent>
 

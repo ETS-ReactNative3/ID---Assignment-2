@@ -1,9 +1,29 @@
 {
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
     "chart.js": "^3.7.0",
     "leaflet": "^1.7.1",
     "numeral": "^2.0.6",
     "react-chartjs-2": "^4.0.1",
     "react-leaflet": "^3.2.5"
-  }
+  },
+  "name": "id---assignment-2",
+  "description": "Runs the app in the development mode.<br />\r Open [http://localhost:3000](http://localhost:3000) to view it in the browser.",
+  "version": "1.0.0",
+  "main": "Helpline.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Klot-Rap/ID---Assignment-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Klot-Rap/ID---Assignment-2/issues"
+  },
+  "homepage": "https://github.com/Klot-Rap/ID---Assignment-2#readme"
 }

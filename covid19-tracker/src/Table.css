@@ -1,7 +1,7 @@
 .table{
     margin-top: 20px; /*to give a margin between the table and this element '<h3>Live Cases by Country</h3>'*/
     overflow:scroll; /*so if it overflows more than the allocated space(height) it gives user the option of scrolling*/
-    height: 400px; /*this is the allocated height*/
+    height: 550px; /*this is the allocated height*/
     color:#6a5d5d; /*provides the color for all content in table, not for backgrd color*/
 }/*targets the table class in Table.js */
 
