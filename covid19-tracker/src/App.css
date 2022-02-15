@@ -1,12 +1,15 @@
 *{
   margin:0;                       /*Set default margin to 0, so theres no spacing between the webpage*/
+  padding:0;
+  /*font-family: 'Montserrat', sans-serif;*/
 }
 
 body{
-  background: linear-gradient( 135deg, #c7d5d2 10%, #5e887e 100%);
+  background: linear-gradient( 135deg, #c7d5d2 10%, #5e887e 100%) fixed;
+  height: 100%;
 }/*setting the background colour to light gray for the body*/
 
-.app{
+.body__app{
   display: flex; /*this is used to make the left and right panel side by side*/
   justify-content: space-evenly; /*thereafter you create space amongst them, space-around will similar action*/
   margin:20px;                   /*to create some space apart from the top*/
@@ -24,23 +27,44 @@ body{
 /*here you target the the all the elements in the app header to make it into an flexbox
 instead being a span element taking up the whole row*/
 
+
 .app__stats{
   display: flex; /*makes it into individual boxes allowing it to not span the whole row, using justify content thereafter*/
   justify-content: space-between;
 }/*here we target the infoboxes, with a class name of app_stats*/
 
 @media (max-width: 1000px){
-  .app{
+  .body__app{
     flex-direction: column; /*to make it shift the right panel to the bottom so it takes its own row, by changing the flex direction*/
   }
+  /* Margin space between Map and Table, when media query is applied */
+  .app__right__panel{
+    margin-top: 20px;
+  }
+}
+/*here we use media query hence when the screen is smallen, the right panel will pop to the bottom*/
+
+
+
+
+/*Navigation bar */
+.title__nav{
+  display: flex;
 }
 
-/*here we use media query hence when the screen is smallen, the right panel will pop to the bottom*/
+.nav__bar{
+  margin: 10px;
+}
+
+
 
 #title{
   color: black;
 }
 
 #gov-logo{
-  margin: 10px 0px 0px 35px;
+  display: block;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }

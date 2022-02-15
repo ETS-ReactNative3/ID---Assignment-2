@@ -7,7 +7,8 @@ import { sortData, prettyPrintStat } from "./util";        //we import these uti
 import LineGraph from "./LineGraph";
 import "./App.css";
 import "leaflet/dist/leaflet.css";
-
+import * as ReactBootStrap from "react-bootstrap";         //this is used to make nav bar and footer
+import Navbar  from "./components/Navbar/Navbar";          //importing Nav bar using relative path
 
 
 
@@ -121,86 +122,99 @@ function App() {
   /* !!!DISPLAY INFO!!! */
   //{} Note these curely brackets is used to write JS inside of React, combining HTML with JS
   return (
-    <div className="app">                     {/*use of BAM naming convention*/}
-      <div className="app__left">
-        {/*Title + Drop Down field*/}
-        <div className="app__header">           {/*here we create a div and make the drop down into a row instead, using flex box so it does not span a whole row, hence we create a division for the header*/}
-          <h1 id="title"> Covid-19 Analytics</h1>
-          <FormControl className ="app_dropdown"> {/*used for the dropdown list of countries later*/}
-            <Select variant = "outlined" value={country} onChange={onCountryChange}>        {/*material UI provieds us with select component, the attribute variant provides outline to the dropdown, value will be what's is displayed by default hence if the tag shared the same value it will be displayed by default, in this case "WorldWide" is set to default in the drop down list. !!! We have also mapped our droppdown to the respective country!!!*/}
-              {/* in the select menu i want to loop through all possible countries to display in the drop down list, using state(variable)*/}{/*in addition i also use the arguemnt onChange, to listen to an event that changes the select to another country, so on the select default value being change it will call the function onCountrychange to perform some action */}
+    <div className="app"> 
+      <Navbar />                    {/*use of BAM naming convention*/}
+      <div className="body__app">
+          <div className="app__left">
+            {/*Title + Nav Bar + Drop Down field*/}
+            <div className="app__header">           {/*here we create a div and make the drop down into a row instead, using flex box so it does not span a whole row, hence we create a division for the header*/}
+              {/*Title */}{/*Nav Bar*/}
+              <div className="title__nav">
+                <h1 id="title"> Covid-19 Analytics</h1>
+                <ReactBootStrap.Navbar expand="lg" variant="light" bg="light" className="nav__bar">
+                  <ReactBootStrap.Container>
+                    <ReactBootStrap.Navbar.Brand href="#">Navbar</ReactBootStrap.Navbar.Brand>
+                  </ReactBootStrap.Container>
+                </ReactBootStrap.Navbar>
+              </div>
+              
+              {/*Drop Down field*/}
+              <FormControl className ="app_dropdown"> {/*used for the dropdown list of countries later*/}
+                <Select variant = "outlined" value={country} onChange={onCountryChange}>        {/*material UI provieds us with select component, the attribute variant provides outline to the dropdown, value will be what's is displayed by default hence if the tag shared the same value it will be displayed by default, in this case "WorldWide" is set to default in the drop down list. !!! We have also mapped our droppdown to the respective country!!!*/}
+                  {/* in the select menu i want to loop through all possible countries to display in the drop down list, using state(variable)*/}{/*in addition i also use the arguemnt onChange, to listen to an event that changes the select to another country, so on the select default value being change it will call the function onCountrychange to perform some action */}
 
-              <MenuItem value="worldwide">Worldwide</MenuItem> {/*here i want to set the default value to wolrd wide, to have world wide as the defualt opt*/} 
+                  <MenuItem value="worldwide">Worldwide</MenuItem> {/*here i want to set the default value to wolrd wide, to have world wide as the defualt opt*/} 
 
-              {/*this will loop through the state(var), so for every country in countries(state(var)), we will retrun a MenuItem to be included in the drop down list, and in each iteration set it to the value attr of the specific element and the name of the specific element.*/ }
-              {/*Hence we then use an API call to be able to iterate through all the countries and display each of it, so we will make a call to get all countries with covid-19 */}
-              {
-              countries.map((country) => (
-                <MenuItem value={country.value}>{country.name}</MenuItem>
-              ))
-              } 
-              {/*essentially it maps through all countries and display the respective name and value, by retriving it from the obj's attri*/}
-            </Select>
-          </FormControl>
-        </div>
+                  {/*this will loop through the state(var), so for every country in countries(state(var)), we will retrun a MenuItem to be included in the drop down list, and in each iteration set it to the value attr of the specific element and the name of the specific element.*/ }
+                  {/*Hence we then use an API call to be able to iterate through all the countries and display each of it, so we will make a call to get all countries with covid-19 */}
+                  {
+                  countries.map((country) => (
+                    <MenuItem value={country.value}>{country.name}</MenuItem>
+                  ))
+                  } 
+                  {/*essentially it maps through all countries and display the respective name and value, by retriving it from the obj's attri*/}
+                </Select>
+              </FormControl>
+            </div>
 
-        {/*InfoBoxes*/}
-        <div className="app__stats"> {/*here we create info boxes to store statistics regarding the covid cases based on the selected country*/}
-          <InfoBox 
-            onClick = {(e) => setCasesType("cases")} //on clicking this specific info box the state will be set to 'cases' type allowing the map to change respectively based on the values in the state
-            active={casesType === "cases"} //here we added a prop called isactive, which checks that if casesType is equal to "cases" value, then the prop active will be active //with the propr being active it will then be set to perform certain action
-            isRed //here we added a variable called isRed
-            title="Coronavirus Case" 
-            cases={prettyPrintStat(countryInfo.todayCases)} 
-            total={prettyPrintStat(countryInfo.cases)}
-          />  
-          {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
-          {/*Notice how the utility function of prettyPtinyStat is called to format the numbers inside of the info boxes, hence utili is important to contain these func*/}
+            {/*InfoBoxes*/}
+            <div className="app__stats"> {/*here we create info boxes to store statistics regarding the covid cases based on the selected country*/}
+              <InfoBox 
+                onClick = {(e) => setCasesType("cases")} //on clicking this specific info box the state will be set to 'cases' type allowing the map to change respectively based on the values in the state
+                active={casesType === "cases"} //here we added a prop called isactive, which checks that if casesType is equal to "cases" value, then the prop active will be active //with the propr being active it will then be set to perform certain action
+                isRed //here we added a variable called isRed
+                title="Coronavirus Case" 
+                cases={prettyPrintStat(countryInfo.todayCases)} 
+                total={prettyPrintStat(countryInfo.cases)}
+              />  
+              {/*Since the info box(from material UI) takes in a few components we must make this match that of the parameters from external js we imported, based on what we set*/}
+              {/*Notice how the utility function of prettyPtinyStat is called to format the numbers inside of the info boxes, hence utili is important to contain these func*/}
+              
+              <InfoBox 
+                onClick = {(e) => setCasesType("recovered")} //however onClick will still not work, hence we must take this props that is passed in and sent it to infoBox js to process it
+                active={casesType === "recovered"} //whereas if the state contains value "recovered", then this prop will be set to active
+                title="Recovered" 
+                cases={prettyPrintStat(countryInfo.todayRecovered)} 
+                total={prettyPrintStat(countryInfo.recovered)}
+              />
           
-          <InfoBox 
-            onClick = {(e) => setCasesType("recovered")} //however onClick will still not work, hence we must take this props that is passed in and sent it to infoBox js to process it
-            active={casesType === "recovered"} //whereas if the state contains value "recovered", then this prop will be set to active
-            title="Recovered" 
-            cases={prettyPrintStat(countryInfo.todayRecovered)} 
-            total={prettyPrintStat(countryInfo.recovered)}
-          />
-       
-          <InfoBox 
-            onClick = {(e) => setCasesType("deaths")}
-            active={casesType === "deaths"} //hence if the state cases type contains "deaths" as it's value, then this infoBox's prop will be set to active
-            isRed //here we added a variable called isRed
-            title="Deaths" 
-            cases={prettyPrintStat(countryInfo.todayDeaths)} 
-            total={prettyPrintStat(countryInfo.deaths)}
-          />
-        </div>
+              <InfoBox 
+                onClick = {(e) => setCasesType("deaths")}
+                active={casesType === "deaths"} //hence if the state cases type contains "deaths" as it's value, then this infoBox's prop will be set to active
+                isRed //here we added a variable called isRed
+                title="Deaths" 
+                cases={prettyPrintStat(countryInfo.todayDeaths)} 
+                total={prettyPrintStat(countryInfo.deaths)}
+              />
+            </div>
 
-        {/*Map*/}
-        <Map
-          countries={mapCountries}
-          casesType={casesType} //here will retrived the respective cases tpye that is set in the state (cases/recovered/deaths) and then it will perform and display different info
-          center={mapCenter}
-          zoom={mapZoom} //here were we render the map, to do so we pass in some parameters by calling the state(var) which provides some values
-        />
+            {/*Map*/}
+            <Map
+              countries={mapCountries}
+              casesType={casesType} //here will retrived the respective cases tpye that is set in the state (cases/recovered/deaths) and then it will perform and display different info
+              center={mapCenter}
+              zoom={mapZoom} //here were we render the map, to do so we pass in some parameters by calling the state(var) which provides some values
+            />
+          </div>
+
+          <Card className="app__right__panel">
+            {/*Table + Graph (right panel)*/}
+            <CardContent>
+              {/*Table*/}
+              {/*Since the useEffect previously already obtain the info of the obj, we can then use it to set the table data based on countries with the highest covid cases*/}
+              <h3>Total Live Cases of Country(by cases)</h3>
+              <Table countries={tableData}/>
+              
+              
+              {/*Graph*/}
+              {/*<h3>Worldwide new cases</h3>*/}
+              {/*<LineGraph />*/}
+              <img id="gov-logo"src="https://www.sgpc.gov.sg/-/media/gov/logo.ashx"/>
+              
+            </CardContent>
+
+          </Card> {/*Card/CardContent is imported from Material UI*/}
       </div>
-
-      <Card className="app__right__panel">
-        {/*Table + Graph (right panel)*/}
-        <CardContent>
-          {/*Table*/}
-          {/*Since the useEffect previously already obtain the info of the obj, we can then use it to set the table data based on countries with the highest covid cases*/}
-          <h3>Total Live Cases of Country(by cases)</h3>
-          <Table countries={tableData}/>
-          
-          
-          {/*Graph*/}
-          {/*<h3>Worldwide new cases</h3>*/}
-          {/*<LineGraph />*/}
-          <img id="gov-logo"src="https://www.sgpc.gov.sg/-/media/gov/logo.ashx"/>
-          
-        </CardContent>
-
-      </Card> {/*Card/CardContent is imported from Material UI*/}
     </div>
   );
 }
