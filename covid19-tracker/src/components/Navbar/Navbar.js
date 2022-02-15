@@ -13,7 +13,7 @@ class Navbar extends Component {
         return(
             <nav className="navbar__items">
                 <h1 className="navbar__logo">
-                    React<i className="fab fa-react"></i>
+                    React {/*<i className="fab fa-react"></i>*/}
                 </h1>
                 {/*i tag styles the icon */}
                 
