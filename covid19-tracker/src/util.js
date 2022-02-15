@@ -59,7 +59,7 @@ hence using that it will go through an sort out all of 'a'(-1) before returing t
 
 //this will be called to format the number inside of info boxes using numeral making it appealing to look at, as it formats the numbers with plus sign
 export const prettyPrintStat = (stat) =>
-  stat ? `+${numeral(stat).format("0.0a")}` : "+0";
+  stat ? `+${numeral(stat).format("0a")}` : "+0";
 
 
 //The purpose of this function is to DRAW circles on the map with a interactive tooltop (meaning when you click the circles it will display respective info about it) 
