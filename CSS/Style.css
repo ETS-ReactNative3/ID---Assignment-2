@@ -1,3 +1,15 @@
+.head-font {
+  font-family: "Montserrat", sans-serif;
+}
+
+.body-font {
+  font-family: "Courier New", monospace;
+}
+
+.visual {
+  display: none;
+}
+
 .centering {
   margin: auto;
   text-align: centre;
