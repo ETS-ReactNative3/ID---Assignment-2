@@ -3,12 +3,13 @@ import './NewsItem.css' //this will be used to style this page of news items
 
 const NewsItem = ( {title, description, url, urlToImage }) => { //this will be the required parameter, NewsList data have to pass in when ever they call this func, unless of these parameter is set to default
   return (
-    <div className='news-app'>
-        <div className='news-item'>
-            <img className='news-img' src={urlToImage} alt={urlToImage}/> {/*notice it used the url to the image passed in*/} 
+    <div className='news__app'>
+
+        <div className='news__item'>
+            <img className='news__img' src={urlToImage} alt={urlToImage}/> {/*notice it used the url to the image passed in*/} 
             {/*this will be used to contain the image passed in*/}
             
-            <div className='news-details'>
+            <div className='news__details'>
                 <h3 className='news-title-url'>
                     <a href={url}>
                         {title}

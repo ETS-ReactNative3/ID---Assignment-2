@@ -1,39 +1,59 @@
 *{
     margin:0;                       /*Set default margin to 0, so theres no spacing between the webpage*/
 }
-  
-.news-app{
-    display: flex; /*here it turn it into a flex box*/ /*to allow for responsiveness*/
-    flex-direction: row;    
+
+.un__response{
+    display: flex;
 }
 
-.news-item{
-    display: flex; /*this is to make the img and details side by side*/
+.un__response p{
+    width: 500px;
+    margin: 20px;
+}
+
+.un__vid{
+    margin: 25px;
+}
+
+.news__img{
+    border-radius: 10px; /*makes the img circlular at the side*/
+    width: 200px;
+    height: 130px;
+}
+
+.news__details{
+    margin: 20px;
+}
+
+.news__item{
+    display: flex; /*here it turn it into a flex box*/ /*to allow for responsiveness*/
     flex-direction: row;
-    justify-content: space-between;
-    width: 5000px;
+    padding: 20px; /*these gives the item inside of the flex box some spaces against the borders*/  
+    margin: 20px;
 
     border-radius: 25px; /*makes the border at the side curve inwards making the box more appealing*/
     border: 3px solid #000000; /*to specify the parameters of the border such as the tickness, style, color*/
-    
-    padding: 20px; /*to create a spacing between the border and the content*/
-    margin: 20px; /*to space out between the flex boxes(news items)*/
-
-    
 }
 
-.news-title-url{
-    text-align: center; /*centers the title*/
+
+/*for the href*/
+.news-title-url a:link {
+    text-decoration: none;
+}
+  
+.news-title-url a:visited {
+    text-decoration: none;
+    color:rgba(121, 3, 121, 0.541);
 }
 
-.news-img{
-    border-radius: 10px; /*makes the img circlular at the side*/
-    
-    display: block;
-    margin-left: auto;
-    margin-right: auto; /*centers the img inside of the flexbox*/
-
-    width: 200px;
+.news-title-url a:hover{
+    background-color: rgba(2, 94, 97, 0.4);
+    text-decoration: underline;
 }
+
+.news-title-url a:active {
+    text-decoration: underline;
+}
+
 
   
