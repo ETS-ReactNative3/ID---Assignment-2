@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+/*all the items*/
+.footer__items{
+    background-color: #e5a186;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*spaces the React icon and things to the side*/
+    align-items: center; /*align the items vertically to the center*/
+}
+
+
+
+
+/*center footer links*/
+.footer__menu{
+    display: flex;
+    justify-self: flex-end;
+    margin-right: 2rem;
+    list-style-type: none; /*removes the dots in the li's*/
+} /*makes the menu to the end of the flex box*/
+
+.footer__links{
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+} /*styles each of the nav links giving them  and removing text styling*/
+
+.footer__links:hover {
+    color: black;
+    background-color:rgba(47, 0, 255, 0.1);
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+} /*when we hover at over the navigation links these color will appear, giving them a nice effect and background*/
+
+
+.copy__right{
+    font-size: 1.2rem;
+}
