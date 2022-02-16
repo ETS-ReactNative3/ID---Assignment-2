@@ -1,0 +1,11 @@
+*{
+    margin:0;                       /*Set default margin to 0, so theres no spacing between the webpage*/
+    padding:0;
+    /*font-family: 'Montserrat', sans-serif;*/
+}
+  
+body{
+    background: linear-gradient( 135deg, #507882 10%, #507882 100%) fixed;
+    height: 100%;
+}/*setting the background colour to light gray for the body*/
+  

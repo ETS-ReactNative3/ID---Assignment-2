@@ -7,7 +7,7 @@ const NewsList = () => {
   
     useEffect(() => {
         const getArticles = async () => {
-            const response = await axios.get('https://newsapi.org/v2/everything?q=coronavirus&apiKey=8386b806164b49d2ac20dd028d9c6a4e') //here it stores the response, which axios helps us to fetch
+            const response = await axios.get('https://newsapi.org/v2/top-headlines?q=coronavirus&apiKey=8386b806164b49d2ac20dd028d9c6a4e') //here it stores the response, which axios helps us to fetch
             //console.log(response)
             setArticles(response.data.articles) //this allows you to traverse through the data sent and store ALL the articles in the state(var) array for all the articles
 

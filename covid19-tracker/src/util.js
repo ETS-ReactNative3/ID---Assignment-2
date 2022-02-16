@@ -10,7 +10,7 @@ const casesTypeColors = {
       hex: "#CC1034", //this will represent the hexidecimal color
       //rgb: "rgb(204, 16, 52)", //this will represent the RGB color
       //half_op: "rgba(204, 16, 52, 0.5)", //this will represent the opactiy of the border
-      multiplier: 120, //this will represent the size of the circle //the inital multiplier was 800 but the cricle was to big(due to incresing cases) making the circles overlap hence i changed it to 120
+      multiplier: 150, //this will represent the size of the circle //the inital multiplier was 800 but the cricle was to big(due to incresing cases) making the circles overlap hence i changed it to 120
     },
     recovered: {
       hex: "#7dd71d",

@@ -9,7 +9,7 @@ import "./App.css";
 import "leaflet/dist/leaflet.css";
 import * as ReactBootStrap from "react-bootstrap";         //this is used to make nav bar and footer
 import Navbar  from "./components/Navbar/Navbar";          //importing Nav bar using relative path
-
+import Footer from "./components/Footer/Footer";
 
 
 
@@ -131,11 +131,6 @@ function App() {
               {/*Title */}{/*Nav Bar*/}
               <div className="title__nav">
                 <h1 id="title"> Covid-19 Analytics</h1>
-                <ReactBootStrap.Navbar expand="lg" variant="light" bg="light" className="nav__bar">
-                  <ReactBootStrap.Container>
-                    <ReactBootStrap.Navbar.Brand href="#">Navbar</ReactBootStrap.Navbar.Brand>
-                  </ReactBootStrap.Container>
-                </ReactBootStrap.Navbar>
               </div>
               
               {/*Drop Down field*/}
@@ -215,6 +210,7 @@ function App() {
 
           </Card> {/*Card/CardContent is imported from Material UI*/}
       </div>
+      <Footer />
     </div>
   );
 }
