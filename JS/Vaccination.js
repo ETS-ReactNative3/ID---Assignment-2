@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("#btn-check").click(function(e){
         if ($("#overview").css("display") == "none"){
-            $("article, table").hide();
+            $("article").hide();
             $("#overview").css("display", "block");
             $("#dropdown").hide();
         }
@@ -20,28 +20,28 @@ $(document).ready(function(){
 
     $("#btn-check2").click(function(e){
         if ($("#pfizer").css("display") == "none"){
-            $("article, table").hide();
+            $("article").hide();
             $("#pfizer").css("display", "block");
         }
     });
 
     $("#btn-check3").click(function(e){
         if ($("#moderna").css("display") == "none"){
-            $("article, table").hide();
+            $("article").hide();
             $("#moderna").css("display", "block");
         }
     });
 
     $("#btn-check4").click(function(e){
         if ($("#jj").css("display") == "none"){
-            $("article, table").hide();
+            $("article").hide();
             $("#jj").css("display", "block");
         }
     });
 
     $("#btn-check5").click(function(e){
         if ($("#sideEffects").css("display") == "none"){
-            $("article, table").hide();
+            $("article").hide();
             $("#sideEffects").css("display", "block");
             $("#dropdown").hide();
         }
