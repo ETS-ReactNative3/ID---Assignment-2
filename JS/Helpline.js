@@ -177,9 +177,9 @@ $(document).ready(function () {
   
         //[STEP 9]: Update our HTML content
         //let's dump the content into our table body
-        $("#contact-list tbody").html(content);
+        //$("#contact-list tbody").html(content);        (here i remove the display of all the contacts details)
   
-        $("#total-contacts").html(response.length);
+        //$("#total-contacts").html(response.length);    (here i remove the number of all the contact details)
       });
   
   
@@ -192,6 +192,7 @@ $(document).ready(function () {
   
     //so here you store the JSON data and put it in a variable 
     //before in STEP 11 you then access the ID and load it into the HTML
+    
     $("#contact-list").on("click", ".update", function (e) {
       e.preventDefault();
   
@@ -213,8 +214,8 @@ $(document).ready(function () {
       
   
       //[STEP 11]: Load in our data from the selected row and add it to our update contact form 
-      /*here we get the value for the GET and then 
-      add back to the HTML id with the tags*/
+      //here we get the value for the GET and then 
+      //add back to the HTML id with the tags
   
       //update our update form values, basically you access each of the attributes in the form and update them with the values you got back from JSON
   
@@ -233,7 +234,7 @@ $(document).ready(function () {
       //*****after updating the HTML update-form then you show the table
   
     });//end contact-list listener for update function
-  
+    
   
     //this functions essentially deletes the tuple
     $("#contact-list").on("click", ".delete", function(e) {

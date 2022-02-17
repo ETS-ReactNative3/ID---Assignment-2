@@ -11,7 +11,7 @@ const NewsItem = ( {title, description, url, urlToImage }) => { //this will be t
             
             <div className='news__details'>
                 <h3 className='news-title-url'>
-                    <a href={url}>
+                    <a href={url} target="_blank"> {/*target blank is used so that user do not get mixed up and open another page instead of having to going to another website on the same page and losing sight of main page*/}
                         {title}
                     </a>
                 </h3>{/*this will be used to store the title and url passed in*/}

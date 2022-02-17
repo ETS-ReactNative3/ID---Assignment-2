@@ -57,6 +57,7 @@
 
     border-radius: 25px; /*makes the border at the side curve inwards making the box more appealing*/
     border: 3px solid #000000; /*to specify the parameters of the border such as the tickness, style, color*/
+    
 }
 
 
@@ -83,6 +84,8 @@
 
 
 @media (max-width: 960px){
+    
+    /*UN AND WHO*/
     .un__response{
         display: flex;
         flex-direction: column;
@@ -101,9 +104,24 @@
         width: auto;
     }
 
+    /*Global News*/
     .news__item{
         display: flex;
         flex-direction: column ;
+        
+    }
+
+    .news__img{
+        border-radius: 10px; /*makes the img circlular at the side*/
+        width: auto;
+        height: auto; /*the auto is so that the img is not fixed and takes up more page space then the page width*/
+        margin: 20px;
+    }
+    
+    .news__details{
+        width: auto;
+        height: auto;
+        margin: 20px;
     }
 }
 
