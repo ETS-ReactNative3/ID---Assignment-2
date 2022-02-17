@@ -73,6 +73,7 @@ $(document).ready(function () {
         
         //@TODO update frontend UI 
         $("#add-update-msg").show().fadeOut(3000);
+        $("#add-contact").hide();
   
         //update our table 
         getcontacts();

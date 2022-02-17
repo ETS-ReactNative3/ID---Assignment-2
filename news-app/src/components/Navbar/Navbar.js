@@ -22,7 +22,10 @@ class Navbar extends Component {
         return(
             <nav className="navbar__items" >
                 <h1 className="navbar__logo">
-                    <img src="https://www.gov.sg/-/media/gov/images/shared/logo/2019-08-07.png?as=0&mw=1000&hash=6AF7BF735E2219A9951BFBE86FA2B7F2" width="80px"/> {/*<i className="fab fa-react"></i>, this displays the react logo from fontawesome.com*/}
+                    <a href="https://www.gov.sg/" target="_blank">
+                        <img src="https://www.gov.sg/-/media/gov/images/shared/logo/2019-08-07.png?as=0&mw=1000&hash=6AF7BF735E2219A9951BFBE86FA2B7F2"
+                        width="80px"/> {/*<i className="fab fa-react"></i>, this displays the react logo from fontawesome.com*/}
+                    </a>
                 </h1>
                 {/*i tag styles the icon */}
                 

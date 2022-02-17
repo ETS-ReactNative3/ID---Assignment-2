@@ -6,7 +6,7 @@
 /*all the items*/
 .footer__items{
     background-color: #e5a186;
-    height: auto;
+    height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: center; /*spaces the React icon and things to the side*/

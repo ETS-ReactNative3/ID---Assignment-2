@@ -20,7 +20,7 @@ export const MenuItems = [
         cName: 'nav__links'
     },
     {
-        title: 'Coronavirus Helpline',
+        title: 'Appointment',
         url: '#',
         cName: 'nav__links'
     }
