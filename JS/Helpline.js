@@ -72,7 +72,9 @@ $(document).ready(function () {
         $("#contact-submit").prop( "disabled", false);
         
         //@TODO update frontend UI 
-        $("#add-update-msg").show().fadeOut(3000);
+        $("#add-contact").hide();
+        $("#add-update-msg").show().fadeOut(5000)
+        $("#add-contact").show(5000);
   
         //update our table 
         getcontacts();

@@ -15,7 +15,7 @@
    
 </head>
 
-<body style="background: linear-gradient( 135deg, #c7d5d2 10%, #5e887e 100%);">
+<body class="bg">
   <div w3-include-html="header.html"></div>
   <!--here we use some inline styling as barely any css is used-->
   <!--Form is tested and Database can be updated,
@@ -59,50 +59,87 @@
             loop autoplay>
           </lottie-player>
         </div>
-
         <div class="form" id="add-contact">
 
-          <form id="add-contact-form">
+          <form class="needs-validation" id="add-contact-form" novalidate>
             
-            <div class = "container">
-              <div class="form-group">
-                <label for="contact-name">Name</label>
-                <input type="text" id="contact-name" class="form-control" required>
+            <div class = "form-group">
+              <label for="contact-name" class="form-label">Name</label>
+              <input type="text" id="contact-name" class="form-control" required>
+              <div class="valid-feedback">
+                Looks good!
               </div>
-
-              <div class="form-group">
-                <label for="student-ID">Student ID</label>
-                <input type="text" id="student-ID" class="form-control" required>
-              </div>                
+              <div class="invalid-feedback">
+                Please provide a valid Name.
+              </div>
             </div>
+
+            <div class="form-group">
+              <label for="student-ID">Booking Code</label>
+              <input type="text" id="student-ID" class="form-control" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please provide a valid code.
+              </div>
+            </div>           
             
-            <div class = "container row">
-                <div class="form-group">
-                  <label for="student-class">Student Class</label>
-                  <input type="text" id="student-class" class="form-control" required>
-                </div>
+            <div class="form-group">
+              <label for="student-class">Identification Number</label>
+              <input type="text" id="student-class" class="form-control" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please provide a valid number.
+              </div>
+            </div>
   
-                <div class="form-group">
-                  <label for="student-number">Student Number</label>
-                  <input type="number" id="student-number" class="form-control" required>
-                </div>
+            <div class="form-group">
+              <label for="student-number">Contact Number</label>
+              <input type="number" id="student-number" class="form-control" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please provide a valid number.
+              </div>
             </div>
                     
             <div class="form-group">
-              <label for="contact-email">Student email</label>
+              <label for="contact-email">Email</label>
               <input type="email" id="contact-email" class="form-control" required>
               <small id="contact-email-help" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please provide a valid email.
+              </div>
             </div>
 
             <div class="form-group">
-            <label for="student-mentor">Student Mentor</label>
+              <label for="student-mentor">Allergies</label>
               <input type="text" id="student-mentor" class="form-control" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
             </div>    
 
             <div class="form-group">
               <label for="contact-msg">Message</label>
               <textarea id="contact-msg" class="form-control" required>
               </textarea>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
             </div>
 
             <input type="submit" value="Send" class="btn btn-primary" id="contact-submit">
@@ -201,7 +238,6 @@
   <div w3-include-html="footer.html"></div>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="JS/w3-include-html.js"></script>
- 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

@@ -4,33 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Measures</title>
-    <link rel="stylesheet" href="CSS/style.css" type="text/css">
+    <title>Vaccination</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="CSS/normalize.css" type="text/css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/Style.css" type="text/css">
 </head>
-<body class ="text-white" style="background: #507882;">
+<body class="bg">
     <div w3-include-html="header.html"></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="d-grid gap-2 col-sm-4">
-                <label class="btn btn-primary body-font" id="btn-check">Overview</label>
-                <label class="btn btn-primary body-font" id="btn-check1">Types of Vaccines</label>
+            <div class="d-flex flex-column col-sm-4" style="margin-top:70px;">
+                <label class="btn btn-secondary" id="btn-check">Overview</label>
+                <label class="btn btn-secondary" id="btn-check1">Types of Vaccines</label>
                 <div id="dropdown" class="visual">
-                    <label class="btn btn-primary" id="btn-check2">Pfizer-BioNTech</label>
-                    <label class="btn btn-primary" id="btn-check3">Moderna</label>
-                    <label class="btn btn-primary" id="btn-check4">Johnson & Johnson's Janssen</label>
+                    <label class="btn btn-secondary" id="btn-check2">Pfizer-BioNTech</label>
+                    <label class="btn btn-secondary" id="btn-check3">Moderna</label>
+                    <label class="btn btn-secondary" id="btn-check4">Johnson & Johnson's Janssen</label>
                 </div>
-                <label class="btn btn-primary" id="btn-check5">side effects</label>
+                 <label class="btn btn-secondary" id="btn-check5">side effects</label>
+                 <a class="d-flex flex-column" href="Helpline.html">
+                    <label class="btn btn-secondary text-decoration-none" href="helpline.html">Appointment</label>
+                 </a>
             </div>
             <section class="col-sm-8">
-                <article id="overview">
-                    <h1>What is a vaccination?</h1>
+                <article class="top-spacing" id="overview">
+                    <h1>Vaccination Overview</h1>
+                    <h2>What is a vaccination?</h2>
                     <p>Vaccination is simple, safe and effective. It protects you against harmful dieases by building your body's natural defences to be more resistant against certain infections and makes your immune system stronger overall.</p>
                     <p>Vaccines cause your immune system to create antibodies by injecting weakened forms of the virus. This does not cause the disease or put you at risk.</p>
                     <p>There is a quick rundown of everything in this video:</p>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/zoHOigIp94Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h1>Why you should take a vaccine?</h1>
+                    <h2 class="spacing">Why you should take a vaccine?</h2>    
                     <ul>
                         <li>Getting the vaccine can lower the risk of getting Covid-19 and if everyone takes it, we can contain it to a certain extent</li>
                         <li>If you do end up getting it, it will help prevent illnesses and death</li>
@@ -38,90 +42,96 @@
                         <li>anyone above the age of 5 can take it</li>
                     </ul>
                 </article>
-                <table id="types" class="table table-striped" style="display:none;">
-                    <thead>
-                        <tr class="table-primary">
-                            <th scope="col">
-                                <h3>Pfizer-BioNTech</h2>
-                            </th>
-                            <th scope="col">
-                                <h3>Moderna</h2>
-                            </th>
-                            <th scope="col">
-                                <h3>Johnson & Johnson's Janssen</h2>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h4>Age Recommended</h4>
-                                <p>5+ years old</p>
-                            </td>
-                            <td>
-                                <h4>Age Recommended</h4>
-                                <p>18+ years old</p>
-                            </td>
-                            <td>
-                                <h4>Age Recommended</h4>
-                                <p>18+ years old</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h4>Primary Series</h4>
-                                <p>2 doses</p>
-                                <p>Given 3 weeks (21 days) apart</p>
-                            </td>
-                            <td>
-                                <h4>Primary Series</h4>
-                                <p>2 doses</p>
-                                <p>Given 4 weeks (28 days) apart</p>
-                            </td>
-                            <td>
-                                <h4>Primary Series</h4>
-                                <p>1 doses</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h4>Booster Dose</h4>
-                                <p>Everyone ages 18 years and older should get a booster dose of either Pfizer-BioNTech or Moderna (COVID-19 vaccines) 5 months after the last dose in their primary series.</p>
-                                <p>Teens 12-17 years old should get a Pfizer-BioNTech COVID-19 Vaccine booster 5 months after the last dose in their primary series.</p>
-                            </td>
-                            <td>
-                                <h4>Booster Dose</h4>
-                                <p>Everyone ages 18 years and older should get a booster dose of either Pfizer-BioNTech or Moderna (COVID-19 vaccines) 5 months after the last dose in their primary series.</p>
-                            </td>
-                            <td>
-                                <h4>Booster Dose</h4>
-                                <p>Everyone ages 18 years and older should get a booster dose of either Pfizer-BioNTech or Moderna (mRNA COVID-19 vaccines) at least 2 months after the first dose of J&J/Janssen COVID-19 vaccine.  You may get J&J/Janssen in some situations.</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h4>When Fully Vaccinated</h4>
-                                <p>2 weeks after 2nd dose</p>
-                            </td>
-                            <td>
-                                <h4>When Fully Vaccinated</h4>
-                                <p>2 weeks after 2nd dose</p>
-                            </td>
-                            <td>
-                                <h4>When Fully Vaccinated</h4>
-                                <p>2 weeks after 1st dose</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <article id="pfizer" class="visual">
-                    <div class="row">
+                <article id="types" class="visual top-spacing">
+                    <h1 style="margin-bottom:20px;">Different Covid-19 Vaccines</h1>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr class="table-primary">
+                                <th scope="col">
+                                    <h3>Pfizer-BioNTech</h2>
+                                </th>
+                                <th scope="col">
+                                    <h3>Moderna</h2>
+                                </th>
+                                <th scope="col">
+                                    <h3>Johnson & Johnson's Janssen</h2>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h4>Age Recommended</h4>
+                                    <p>5+ years old</p>
+                                </td>
+                                <td>
+                                    <h4>Age Recommended</h4>
+                                    <p>18+ years old</p>
+                                </td>
+                                <td>
+                                    <h4>Age Recommended</h4>
+                                    <p>18+ years old</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h4>Primary Series</h4>
+                                    <p>2 doses</p>
+                                    <p>Given 3 weeks (21 days) apart</p>
+                                </td>
+                                <td>
+                                    <h4>Primary Series</h4>
+                                    <p>2 doses</p>
+                                    <p>Given 4 weeks (28 days) apart</p>
+                                </td>
+                                <td>
+                                    <h4>Primary Series</h4>
+                                    <p>1 doses</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h4>Booster Dose</h4>
+                                    <p>Everyone ages 18 years and older should get a booster dose of either Pfizer-BioNTech or Moderna (COVID-19 vaccines) 5 months after the last dose in their primary series.</p>
+                                    <p>Teens 12-17 years old should get a Pfizer-BioNTech COVID-19 Vaccine booster 5 months after the last dose in their primary series.</p>
+                                </td>
+                                <td>
+                                    <h4>Booster Dose</h4>
+                                    <p>Everyone ages 18 years and older should get a booster dose of either Pfizer-BioNTech or Moderna (COVID-19 vaccines) 5 months after the last dose in their primary series.</p>
+                                </td>
+                                <td>
+                                    <h4>Booster Dose</h4>
+                                    <p>Everyone ages 18 years and older should get a booster dose of either Pfizer-BioNTech or Moderna (mRNA COVID-19 vaccines) at least 2 months after the first dose of J&J/Janssen COVID-19 vaccine.  You may get J&J/Janssen in some situations.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h4>When Fully Vaccinated</h4>
+                                    <p>2 weeks after 2nd dose</p>
+                                </td>
+                                <td>
+                                    <h4 >When Fully Vaccinated</h4>
+                                    <p>2 weeks after 2nd dose</p>
+                                </td>
+                                <td>
+                                    <h4>When Fully Vaccinated</h4>
+                                    <p>2 weeks after 1st dose</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+                
+                <article id="pfizer" class="visual top-spacing">
+                    <h1 class="spacing">Pfizer-BioNTech Vaccine Overview</h1>
+                    <h2>General Information</h2>
+                    <div class="row spacing">
                         <div class="col-sm-6">
                             <p>Manufacturer: Pfizer, Inc., and BioNTech</p>
                             <p>Number of Shots: 2 shots, 21 days apart Moderately or severely immunocompromised people ages 5 years and older should get an additional primary shot at least 28 days after their second shot.</p>
@@ -133,13 +143,24 @@
                             <p>Name: BNT162b2</p>
                             <p>Brand name: COMIRNATY</p>
                         </div>
-                        <h2>Moderna COVID-19 Vaccine Ingredients</h2>
-                        <p>All COVID-19 vaccine ingredients are safe. Nearly all the ingredients in COVID-19 vaccines are ingredients found in many foods—fats, sugars, and salts. The Moderna COVID-19 vaccine also contains a harmless piece of messenger RNA (mRNA). The COVID-19 mRNA teaches cells in the body how to create an effective immune response to the virus that causes COVID-19. This response helps protect you from getting sick with COVID-19 in the future. After the body produces an immune response, it discards all the vaccine ingredients, just as it would discard any substance that cells no longer need. This process is a part of normal body functioning.</p>
-                        <p>All COVID-19 vaccines are manufactured with as few ingredients as possible and with very small amounts of each ingredient. Each ingredient in the vaccine serves a specific purpose as seen in the table below.</p>
                     </div>
+                    <h2>Who should get the Vaccine?</h2>
+                    <p>The Pfizer-BioNTech vaccine is recommended for people ages 5 years and older.</p>
+                    <h3>Do NOT get it if:</h3>
+                    <ul>
+                        <li>you have had a severe allergic reaction or have a diagnosed allergy to any ingredient in the Pfizer-BioNTech COVID-19 vaccine</li>
+                        <li>If you had a severe allergic reaction after getting a dose of the Pfizer-BioNTech COVID-19 vaccine</li>
+                    </ul>
+                    <p>If you are allergic to the Vaccine, look for other vaccines that are not mRNA like Johnson & Johnson’s Janssen</p>
+                    <p class="spacing">In the case that you get a severe allergic reaction which includes a rapid heartbeat, difficulty breathing, swelling of the throat, or a generalized rash or hives, you need to be treated with epinephrine and should seek medical attention immediately.</p>
+                    <h2>Moderna COVID-19 Vaccine Ingredients</h2>
+                    <p>All COVID-19 vaccine ingredients are safe. Nearly all the ingredients in COVID-19 vaccines are ingredients found in many foods—fats, sugars, and salts. The Moderna COVID-19 vaccine also contains a harmless piece of messenger RNA (mRNA). The COVID-19 mRNA teaches cells in the body how to create an effective immune response to the virus that causes COVID-19. This response helps protect you from getting sick with COVID-19 in the future. After the body produces an immune response, it discards all the vaccine ingredients, just as it would discard any substance that cells no longer need. This process is a part of normal body functioning.</p>
+                    <p>All COVID-19 vaccines are manufactured with as few ingredients as possible and with very small amounts of each ingredient. Each ingredient in the vaccine serves a specific purpose as seen in the table below.</p>
                 </article>
-                <article id="moderna" class="visual">
-                    <div class="row">
+                <article id="moderna" class="visual top-spacing">
+                    <h1 class="spacing">Moderna Vaccine Overview</h1>
+                    <h2>General Information</h2>
+                    <div class="row spacing">
                         <div class="col-sm-6">
                             <p>Manufacturer: ModernaTX, Inc.</p>
                             <p>Number of Shots: 2 shots, 28 days apart Moderately or severely immunocompromised people should get an additional primary shot (third dose) at least 28 days after their second shot.</p>
@@ -150,20 +171,55 @@
                             <p>How Given: Shot in the muscle of the upper arm</p>
                             <p>Name: mRNA-1273</p>
                         </div>
-                        <h2>Moderna COVID-19 Vaccine Ingredients</h2>
-                        <p>All COVID-19 vaccine ingredients are safe. Nearly all the ingredients in COVID-19 vaccines are ingredients found in many foods—fats, sugars, and salts. The Moderna COVID-19 vaccine also contains a harmless piece of messenger RNA (mRNA). The COVID-19 mRNA teaches cells in the body how to create an effective immune response to the virus that causes COVID-19. This response helps protect you from getting sick with COVID-19 in the future. After the body produces an immune response, it discards all the vaccine ingredients, just as it would discard any substance that cells no longer need. This process is a part of normal body functioning.</p>
-                        <p>All COVID-19 vaccines are manufactured with as few ingredients as possible and with very small amounts of each ingredient. Each ingredient in the vaccine serves a specific purpose as seen in the table below.</p>
                     </div>
+                    <h2>Who should get the Vaccine?</h2>
+                    <p>The Pfizer-BioNTech vaccine is recommended for people ages 18 years and older.</p>
+                    <h3>Do NOT get it if:</h3>
+                    <ul>
+                        <li>you have had a severe allergic reaction or have a diagnosed allergy to any ingredient in the Pfizer-BioNTech COVID-19 vaccine</li>
+                        <li>you had a severe allergic reaction after getting a dose of the Pfizer-BioNTech COVID-19 vaccine</li>
+                    </ul>
+                    <p>If you are allergic to the Vaccine, look for other vaccines that are not mRNA like Johnson & Johnson’s Janssen</p>
+                    <p class="spacing">In the case that you get a severe allergic reaction which includes a rapid heartbeat, difficulty breathing, swelling of the throat, or a generalized rash or hives, you need to be treated with epinephrine and should seek medical attention immediately.</p>
+                    <h2>Moderna COVID-19 Vaccine Ingredients</h2>
+                    <p>All COVID-19 vaccine ingredients are safe. Nearly all the ingredients in COVID-19 vaccines are ingredients found in many foods—fats, sugars, and salts. The Moderna COVID-19 vaccine also contains a harmless piece of messenger RNA (mRNA). The COVID-19 mRNA teaches cells in the body how to create an effective immune response to the virus that causes COVID-19. This response helps protect you from getting sick with COVID-19 in the future. After the body produces an immune response, it discards all the vaccine ingredients, just as it would discard any substance that cells no longer need. This process is a part of normal body functioning.</p>
+                    <p>All COVID-19 vaccines are manufactured with as few ingredients as possible and with very small amounts of each ingredient. Each ingredient in the vaccine serves a specific purpose as seen in the table below.</p>
                 </article>
-                <article id="jj" class="visual">
-
+                <article id="jj" class="visual top-spacing">
+                    <h1 class="spacing head-font">Johnson & Johnson's Janssen Vaccine Overview</h1>
+                    <h2>General Information</h2>
+                    <div class="row spacing">
+                        <div class="col-sm-6">
+                            <p>Name: JNJ-78436735</p>
+                            <p>Manufacturer: Janssen Pharmaceuticals Companies of Johnson & Johnson</p>
+                            <p>Type of Vaccine: Viral Vector</p>
+                            <p>Number of Shots: 1 shot may be given in some situations.</p>
+                            <p>Booster Shot: Everyone ages 18 years and older should get a booster dose of either Pfizer-BioNTech or Moderna (mRNA COVID-19 vaccines) at least 2 months after receiving the Johnson & Johnson’s Janssen (J&J/Janssen) vaccine in most situations.</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p>How Given: Shot in the muscle of the upper arm</p>
+                            <p>Does NOT Contain: Eggs, preservatives, latex or metals.</p>
+                        </div>
+                    </div>
+                    <h2>Who should get the Vaccine?</h2>
+                    <p>The Pfizer-BioNTech vaccine is recommended for people ages 18 years and older.</p>
+                    <h3>Do NOT get it if:</h3>
+                    <ul>
+                        <li>you have had a severe allergic reaction or have a diagnosed allergy to any ingredient in the Pfizer-BioNTech COVID-19 vaccine</li>
+                        <li>you had a severe allergic reaction after getting a dose of the Pfizer-BioNTech COVID-19 vaccine</li>
+                    </ul>
+                    <p>If you are allergic to the Vaccine, look for other vaccines that are not mRNA like Johnson & Johnson’s Janssen</p>
+                    <p class="spacing">In the case that you get a severe allergic reaction which includes a rapid heartbeat, difficulty breathing, swelling of the throat, or a generalized rash or hives, you need to be treated with epinephrine and should seek medical attention immediately.</p>
+                    <h2>Johnson & Johnson (J&J)/Janssen COVID-19 Vaccine Ingredients</h2>
+                    <p>The J&J/Janssen COVID-19 vaccine contains a piece of a modified virus that is not the virus that causes COVID-19. This modified virus is called the vector virus. The vector virus cannot reproduce itself, so it cannot cause COVID-19. This vector virus gives instructions to cells in the body to create an immune response. This response helps protect you from getting sick with COVID-19 in the future. After the body produces an immune response, it gets rid of all of the vaccine ingredients just as it would discard any information that cells no longer need. This process is a part of normal body functioning.</p>
+                    <p>All COVID-19 vaccines are manufactured with as few ingredients as possible and with only the necessary amounts of each ingredient. Nearly all of the ingredients in COVID-19 vaccines are also the ingredients in many foods – fats, sugars, and salts. Each ingredient in the vaccine serves a specific purpose as seen in the table below.</p>
                 </article>
-                <article id="sideEffects" class="visual">
+                <article id="sideEffects" class="visual top-spacing">
                     <h1>Possible Side Effects After Getting a COVID-19 Vaccine</h1>
                     <p>COVID-19 vaccination helps protect people from getting COVID-19. Some people have side effects from the vaccine, which are normal signs that their body is building protection. These side effects may affect their ability to do daily activities, but they should go away in a few days. Some people have no side effects, and allergic reactions are rare.</p>
                     <p>Adverse effects that could cause a long-term health problem are extremely unusual following any vaccination, including COVID-19 vaccination. If adverse effects occur, they generally happen within six weeks of receiving a vaccine dose. For this reason, during clinical trials, the U.S. Food and Drug Administration (FDA) collected data on each of the authorized COVID-19 vaccines for a minimum of two months (eight weeks) after the final dose. CDC, FDA, and other federal agencies continue to monitor the safety of COVID-19 vaccines even now that the vaccines are in use.</p>
-                    <h1>Common Side Effects</h1>
-                    <div class="row">
+                    <h2>Common Side Effects</h2>
+                    <div class="row spacing">
                         <div class="col-sm-6">
                             <h3>On the arm where you got the shot:</h3>
                             <ul>
@@ -184,7 +240,7 @@
                             </ul>
                         </div>
                     </div>
-                    <h1>After a Second Shot or a Booster Shot</h1>
+                    <h2>After a Second Shot or a Booster Shot</h2>
                     <p>Side effects after the second shot may be more intense than the ones experienced after the first shot. These side effects are normal signs that the body is building protection and should go away within a few days.</p>
                     <p>So far, reactions reported after getting a booster shot are similar to those after the two-dose or single-dose primary shots. Fever, headache, fatigue, and pain at the injection site were the most commonly reported side effects, and overall, most side effects were mild to moderate. However, as with the two-dose or single-dose primary shots, serious side effects are rare but can occur.</p>
                 </article>
