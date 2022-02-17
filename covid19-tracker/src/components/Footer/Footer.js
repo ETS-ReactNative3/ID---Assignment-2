@@ -24,7 +24,7 @@ class Footer extends Component {
                     {MenuItems.map((item, index) => {    //obj is defiend as item
                         return (
                             <li key={index}> {/*assign a key to the li in each ite */}
-                                <a className={item.cName} href={item.url}>
+                                <a className={item.cName} href={item.url} target="_blank"> {/*target blank is used so that user do not get mixed up and open another page instead of having to going to another website on the same page and losing sight of main page*/}
                                     <i class={item.faLogo} width="30"></i>
                                 </a>{/*i tag is a placeholder tag for fontawesome icon*/}
                             </li>  //through each iteration item is iterated and classname/ href/ title is retrived(from Menu Items) and set to be a argument or displayed

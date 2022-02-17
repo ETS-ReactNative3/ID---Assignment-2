@@ -5,7 +5,7 @@ export const MenuItems = [
         cName: 'nav__links'
     },
     {
-        title: 'Recent Measures',
+        title: 'Global Headlines',
         url: '#',
         cName: 'nav__links'
     },
@@ -15,7 +15,7 @@ export const MenuItems = [
         cName: 'nav__links'
     },
     {
-        title: 'Appointment',
+        title: 'Vaccination',
         url: '#',
         cName: 'nav__links'
     },

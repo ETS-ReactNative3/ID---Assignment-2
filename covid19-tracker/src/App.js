@@ -4,7 +4,6 @@ import InfoBox from "./InfoBox";                                                
 import Map from "./Map";                                                                    //here it imports the map.js using relative path
 import Table from "./Table"
 import { sortData, prettyPrintStat } from "./util";        //we import these util func so we can call the func inside of util to help us do and perform certain handy tasks   //to use the sort function inside of the utilisties file
-import LineGraph from "./LineGraph";
 import "./App.css";
 import "leaflet/dist/leaflet.css";
 import * as ReactBootStrap from "react-bootstrap";         //this is used to make nav bar and footer
@@ -201,9 +200,8 @@ function App() {
               <Table countries={tableData}/>
               
               
-              {/*Graph*/}
+              {/* Gov Logo*/}
               {/*<h3>Worldwide new cases</h3>*/}
-              {/*<LineGraph />*/}
               <img id="gov-logo"src="https://www.sgpc.gov.sg/-/media/gov/logo.ashx"/>
               
             </CardContent>

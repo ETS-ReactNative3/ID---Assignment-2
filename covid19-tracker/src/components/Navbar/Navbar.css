@@ -66,8 +66,6 @@
 
 /*when the screen is less than 1000px in width*/
 @media (max-width: 1000px){
-    .navbar__items{
-    }/*all the items*/
     
     /*React logo*/
     .navbar__logo{
@@ -98,10 +96,11 @@
     }
     .nav__links{
         text-align: center;
-        padding: 2rem;
+        padding: 1rem;
         width: 100%;
         display: table;
         color: white;
+        text-decoration: none;
     } 
     .nav__links:hover{
         background-color: rgba(229, 161, 134, 0.5);
@@ -114,6 +113,8 @@
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
         cursor: pointer;
+
+        margin-left: 20px;
     }
     
 

@@ -8,4 +8,7 @@ body{
     background: linear-gradient( 135deg, #507882 10%, #507882 100%) fixed;
     height: 100%;
 }/*setting the background colour to light gray for the body*/
-  
+
+.news__headline{
+    margin: 20px;
+}
