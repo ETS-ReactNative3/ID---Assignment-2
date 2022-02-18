@@ -9,46 +9,56 @@ The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
 ## Website target and purpose
-- We are working in the form of an government entity, and we are building a website 
-  to garner attention for Singaporeans regarding covid related news, and allow them
-  to stay updated with real time statistics and credible news with helpline included. 
+- our website is deloyed by a government entity (gov.sg)
+- target audience: citizens of Singapore
+- which want to use the website to garner attention and spread awareness regarding the covid-19 cases around the world. Through using an interactive hot map to gamify the experience and make it more interactive and visually friendly for the user with up to date figures.
+- in addition we have up to date global headlines news daily to allow user to stay updated with real time statistics and credible news.
+- further more we provide information regarding the different available vaccination informing and educating the user and allowing them to evaluate and finally book an appointment with us for vaccination.
 
 ## Pages & their features
 ### Home page (index.html)
-- Contains (Latest update on communicty cases(NUM), latest news/articles)
-- Logo (website for the gov)
-- All the social links in the footer
-- Nav bar has reponsive function (when resized three lines formed)
+-An overview of what covid-19 is and how it has impacted our lives in Singapore.
+-Also contains information on the threat of covid-19 and it could negatively affect usbif it is not collectively contained.
 
-
-### Tracker/Analytics page (uses API)(Analytics.html)
-- Anlytic graph using API 
-- Graphs and Numbers (anlysisin different ratios)
-
-
-### Appoinment page (several appointment, testing sites avaliable, like info and all, Database)
-(Appointment.html)
-- Appointment for testing 
-- Appointment for online doctor (use Database to record patient list)
-- Appointment for vaccination
-(Once Appoinment booked use Lottie)
-
-
-### Recent Mesures (Measures.html)
-- VTL 
+### Global headlines
+ (uses API)(news-app.js)
+- UN response 
+- WHO measures
 - Safety measurements
-- Minimum age for vaccination vax 
+- global headlines around the world
+- update user on reliable sources and how global community has responded and provide current circulating news.
 
 
-- Helpline (with contact form)(uses JS & Jquery)(helpline.html)
-- like the location
-- who to call for what issues
+### Analytics page 
+(uses API)(Covid19-tracker.js)
+- Card displaying figures of (cases/ recovered/ deaths)
+- figures regarding all countries
+- Interactive map (analysing different countries)
+
+
+### Vaccination (vaccination.html)
+- An overview of what a vaccine is and why you should take it
+What each type of vaccine and their differences
+The side effects of taking a vaccine
+- to inform people on what vaccination is for what and which vaccine should the user take as well as to warn them ahead of time of the temporary side effects it causes. Before allowing them to make an appointment.
+
+
+### Appointment(Appointment .html)
+(Uses lottie animation)(uses JS & Jquery)(helpline.html)
+- display location of ministry of health head quarter
+- who to call for regarding covid (helping provided)
 - MOH and all
 https://www.moh.gov.sg/contact-us
+- Appointment for vaccination
+(Once Appoinment booked lottie is used as a form of confirmation)(this is linked to vaccination page allowing the user to make a sound decision after they get an overview of all the available vaccines)
 
+### Nav bar
+-link to our parent web page gov.sg
+-allow user to navigate through all the pages 
 
 ### Footer
 - Will include all social links 
+-with trademark below 
 
 
 
@@ -58,6 +68,41 @@ https://www.moh.gov.sg/contact-us
 and see the variation in Covid cases and be able to view data derived from an API containg much information relating to covid around the world. Allowing user to graspe the Covid cases and visualise it in differnet manner. Including number, statistics and visuals.
 
 
+## Project description 
+### Design process 
+- first we created the wireframe for both web and mobile version disregarding the background and images
+-thereafter we searched all the relevant images 
+- then we made fetches for all respective apis information regarding the analytics page and the global headlines page.
+- thereafter we insert the content and added beatification to all pages
+- then we ensured responsiveness amongst the pages.
+- lastly we link all pages on deployment with inclusion of nav bar.
+
+## Test documentation
+### Home
+- NIL -
+
+### Global headlines
+- News api have been successfully retrived with the ability to refresh every once in awhile with update global headlines. As it has been crossed referenced daily to check the changes and updates by pulling from the respective update api.
+
+### Analytics
+- All components tested when every user changes the selection of countryies the card will be updated respectively with (cases/deaths/recovers).
+(In addition is checked to update daily base on their time zones, hence if the days data have not been update yet it will not be displayed and will display a default value of +0 but the total cases/deaths/recovery of the respective country will still be displayed)
+-Additional when user press the pop up info of each country on the hot map it has been mapped correctly and accurately of its info to the respective country.
+- In addition console.log has also been used to check when a change of component activated the useEffect code and excute the respective code.
+- Figures have been crossed references with the exact figured from the table to the relibale documentation of covid cases in google and all data have been accurate and updated.
+
+### Vaccination
+- NIL -
+
+### Appointment
+- Form validation
+
+
+### HTML & CSS
+- all html and css has gone through respective validation website and have been cleared with no errors detected.
+
+### Javascript 
+- have been validated using console with little to one minor error appearing and all others error have been fixed, all functions is able to execute successfully.
 
 ## Technologies Used
 languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, name is provided, a link to its official site and a short sentence of why it was used.
@@ -101,12 +146,23 @@ deter it from blocking the web from running especially for event driven servers 
 ### Lottie
 -  We use Lottie as animation to captivate and entertain the user while the page is loading and including when the user submits a form to validate and reassure its submission.
 - https://lottiefiles.com/animation/js
+
+### firebase
+- we use firebase to specially deploy our website for the react based web apllication as it require fetching and interaction with api.
+- https://firebase.google.com/
+### bootstrap
+- we use bootstrap to help with certain styling of our web application including the forms
+- https://getbootstrap.com/
+
+
 ## Credits
+### API
+https://disease.sh
 ### Logo 
  The Logo and Icons used for these websites are mostly obtained from
 - https://www.gov.sg/        (logo)
 - https://www.flaticon.com/  (icon)
-  : https://lottiefiles.com/   (animation)
+- https://lottiefiles.com/   (animation)
 
 ### Media 
  The photos used in this site were obtained from
