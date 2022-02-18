@@ -14,8 +14,10 @@ nav {
 }
 
 .bg-image {
-  background-image: url("https://www.venta-air.com/en_us/wp-content/uploads/2021/02/venta-nsars-covid19_1920x1920-1.jpg");
-  height: 400px;
+  background-image: url("https://i.ibb.co/0X2Lb5k/Home-page-image.png");
+  height: 1000px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .spacing {
@@ -27,11 +29,6 @@ nav {
 }
 .visual {
   display: none;
-}
-
-.centering {
-  margin: auto;
-  text-align: centre;
 }
 
 /*---------------HELPLINE---------------*/
