@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="height: auto">
+<html lang="en" style="height: auto">
 
 <head>
 	<meta charset="utf-8">
@@ -28,7 +28,7 @@
       
       <div class = "col-sm-6">
         <h2>Cornoavirus National Helpline</h2>
-        <a  href="tel:1800 202 6868" style="text-decoration:none;"><strong>1800 202 6868</strong></a> <!--the href tag allows the number to create a clickable phone number-->
+        <p style="text-decoration:none;"><strong>1800 202 6868</strong></p> <!--the href tag allows the number to create a clickable phone number-->
         <p>If you need emotional or psychological support, 
           please call the National CARE Hotline.
         </p>
@@ -89,11 +89,6 @@
           </form>
         </div>
         <div id="add-update-msg">
-          <!--
-          <div class="alert alert-success" role="alert">
-            Contact record successfully added
-          </div>
-          -->
           <lottie-player 
             src="https://assets5.lottiefiles.com/packages/lf20_540ZG5.json"  
             background="transparent"  speed="1"  style="width: 300px; height: 300px;"    
@@ -104,90 +99,7 @@
 
 
     </div>
-  </div><!-- end add container --> 
-
-  <!--
-  <div class="container mt-5">
-    <h2>Table information of Contacts (<span id="total-contacts"></span>)</h2>
-    <table class="table" id="contact-list">
-      <thead>
-        <th>Name</th>
-        <th>ID</th>
-        <th>Class</th>
-        <th>Number</th>
-
-        <th>Email</th>
-        <th>Mentor</th>
-        <th>Message</th>
-        <th colspan="2">Actions</th>
-        
-      </thead>
-      //This will be filled with information later 
-      <tbody></tbody>
-    </table>
   </div>
-  -->
-
-  <!--
-  <div class="container mt-5" id="update-contact-container"> 
-
-    <div id="add-update-msg">
-			<div class="alert alert-success" role="alert">
-				Contact record updated sucessfully
-			</div>
-		</div>
-
-    <h4>Update Contact</h4>
-    <div class="form" id="update-contact">
-      //notice how each form have a id, to be updated is basically the update-contact-id
-			<form id="update-contact-form">
-        
-
-				<div class="form-group">
-					<label for="update-contact-name">Name</label>
-          <input type="text" id="update-contact-name" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-					<label for="update-student-ID">Student ID</label>
-          <input type="text" id="update-student-ID" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-					<label for="update-student-class">Student Class</label>
-          <input type="text" id="update-student-class" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-					<label for="update-student-number">Student Number</label>
-          <input type="text" id="update-student-number" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-          <label for="update-contact-email">Email</label>
-          <input type="email" id="update-contact-email" class="form-control" required>
-           <small id="update-contact-email-help" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-
-          <div class="form-group">
-					<label for="update-student-mentor">Student Mentor</label>
-          <input type="text" id="update-student-mentor" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-          <label for="update-contact-msg">Message</label>
-          <textarea id="update-contact-msg" class="form-control" required>
-          </textarea>
-          
-          <input type="hidden" id="update-contact-id">
-          </div>
-
-          <input type="submit" value="Update Contact Details" class="btn btn-warning" id="update-contact-submit">
-
-        </form>
-    </div>
-  </div>
-  -->
 
 
   <div w3-include-html="footer.html"></div>
@@ -197,6 +109,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-<script type="text/javascript" src="JS\Appointment.js"></script>
+<script src="JS/Appointment.js"></script>
   </body>
 </html>
