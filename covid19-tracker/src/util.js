@@ -64,8 +64,8 @@ export const prettyPrintStat = (stat) =>
 
 //The purpose of this function is to DRAW circles on the map with a interactive tooltop (meaning when you click the circles it will display respective info about it) 
 export const showDataOnMap = (data, casesType) => //there no need for {}
-    data.map((country) => (
-        <Circle
+    data.map((country, index) => (
+        <Circle key={index}
             center={[country.countryInfo.lat, country.countryInfo.long]} //note it is accessed by the country obj, hence you cannot call it by data.countryInfo. ..., instead you must use the obj name, country.countryInfo.... to access the attributes
             color={casesTypeColors[casesType].hex} //fills the borders of the circle //fillColor, fills the inner part of the circle
             fillColor={casesTypeColors[casesType].hex} //color & fillcolor attributes, utilies the styliing dicitonary on top accesses the casesType("Deaths, recovered...") and get the respective color  

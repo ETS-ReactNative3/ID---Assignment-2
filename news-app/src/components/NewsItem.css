@@ -8,9 +8,9 @@
     display: flex;
 }
 
-.un__response p{
+.un__response div{
     width: auto;
-    margin: 20px;
+    margin: 25px;
     flex:1 1;
 }
 
@@ -26,8 +26,9 @@
     
 }
 
-.who__measures p{
-    margin: 20px;
+.who__measures div{  /*access the first instance of an div element inside of the class who__measures*/
+    width: auto;
+    margin: 25px;
     flex:1 1;
 }
 

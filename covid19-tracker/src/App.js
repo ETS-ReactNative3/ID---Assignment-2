@@ -53,7 +53,8 @@ function App() {
       await fetch("https://disease.sh/v3/covid-19/countries")       //aft the response is fetched, we want to then only retrive the JSON from it
       .then((response) => response.json())                          //thereafter, we use the Data(JSON) and restructure it
       .then((data) => {
-        const countries = data.map((country) => ({                  //mapping of countries obj, map func essentially loops through the array, it gets some data(in this case) and returning an ARRAY of obj with only obj with specificed attr and not the whole JSON raw obj  
+        const countries = data.map((country,index) => ({                  //mapping of countries obj, map func essentially loops through the array, it gets some data(in this case) and returning an ARRAY of obj with only obj with specificed attr and not the whole JSON raw obj  
+          key: index,
           name: country.country,          // United States, United Kingdom                                //here we are matching the data(name = Singapore) we retrived and mapping it into an object
           value: country.countryInfo.iso2,// US, UK                          //similarly here we are mapping the country code(SG, JPN...) to the value attr in the obj
         }));                                                       //note that you are retriving from the JSON and traversing through the data to retrive the value before assigning ti to the value of an obj
@@ -142,8 +143,8 @@ function App() {
                   {/*this will loop through the state(var), so for every country in countries(state(var)), we will retrun a MenuItem to be included in the drop down list, and in each iteration set it to the value attr of the specific element and the name of the specific element.*/ }
                   {/*Hence we then use an API call to be able to iterate through all the countries and display each of it, so we will make a call to get all countries with covid-19 */}
                   {
-                  countries.map((country) => (
-                    <MenuItem value={country.value}>{country.name}</MenuItem>
+                  countries.map((country, index) => (
+                    <MenuItem key={index} value={country.value}>{country.name}</MenuItem>
                   ))
                   } 
                   {/*essentially it maps through all countries and display the respective name and value, by retriving it from the obj's attri*/}

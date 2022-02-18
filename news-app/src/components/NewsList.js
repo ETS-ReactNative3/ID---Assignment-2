@@ -20,9 +20,9 @@ const NewsList = () => {
         <div>
             {/*NewsList*/}
 
-            {articles.map(article => {
+            {articles.map((article,index) => {
                 return(
-                    <NewsItem
+                    <NewsItem key={index}  //Each child in a list should have a unique "key" prop, hence i added the index in as parameter an in each iteration it map the key with a new unqiue index
                         title={article.title}
                         description={article.description}
                         url={article.url}

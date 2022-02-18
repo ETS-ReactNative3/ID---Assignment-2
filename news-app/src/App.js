@@ -14,35 +14,39 @@ function App() {
         <iframe className="un__vid"
           width="560" height="315" 
           src="https://www.youtube.com/embed/Irxikwio1Mo" title="YouTube video player" 
-          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
+          frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowFullScreen>
         </iframe>
 
-        <p>
+        <div>
           <h1>UN Response to COVID-19</h1>
-          The COVID-19 pandemic is more than a health crisis; it is an economic crisis,
-          a humanitarian crisis, a security crisis, and a human rights crisis. This crisis 
-          has highlighted severe fragilities and inequalities within and among nations. 
-          Coming out of this crisis will require a whole-of-society, whole-of-government 
-          and whole-of-the-world approach driven by compassion and solidarity.
-        </p>
+          <p>
+            The COVID-19 pandemic is more than a health crisis; it is an economic crisis,
+            a humanitarian crisis, a security crisis, and a human rights crisis. This crisis 
+            has highlighted severe fragilities and inequalities within and among nations. 
+            Coming out of this crisis will require a whole-of-society, whole-of-government 
+            and whole-of-the-world approach driven by compassion and solidarity.
+          </p>
+        </div>
       </div>
       
       <div className="who__measures">
-        <p>
+        <div>
           <h1>WHO: Coronavirus disease (COVID-19) Pandemic, precautionary measures</h1>
-          The World Health Organization (WHO) is working closely with global experts, 
-          governments and partners to rapidly expand scientific knowledge on this new virus, 
-          to track the spread and virulence of the virus, and to provide advice to countries and 
-          individuals on measures to protect health and prevent the spread of this outbreak.
-        </p>
+          <p>
+            The World Health Organization (WHO) is working closely with global experts, 
+            governments and partners to rapidly expand scientific knowledge on this new virus, 
+            to track the spread and virulence of the virus, and to provide advice to countries and 
+            individuals on measures to protect health and prevent the spread of this outbreak.
+          </p>
+        </div>
 
         <iframe className="who__vid"
           width="560" height="315" 
           src="https://www.youtube.com/embed/bPITHEiFWLc" 
-          title="YouTube video player" frameborder="0" 
+          title="YouTube video player" frameBorder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
+          allowFullScreen>
         </iframe>        
       </div>
       
